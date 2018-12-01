@@ -74,6 +74,8 @@ class FoodEngineClient(object):
 
     def load_data(self):
         data = {}
+        dataAfterFilter ={}
+
         fProducts = open(Paths.ProductsCsv, encoding='utf-8')
         products_rows = csv.DictReader(fProducts)
 
@@ -86,7 +88,12 @@ class FoodEngineClient(object):
         for nutrientProduct in nutrient_rows:
             data[nutrientProduct['NDB_No']] = self.addNutrientToProduct(data[nutrientProduct['NDB_No']],
                                                                         nutrientProduct)
-        self.products = data
+        for productId in data:
+            product = data.get(productId)
+            if product.energy is not None:
+                dataAfterFilter[product.id] = product
+
+        self.products = dataAfterFilter
 
     def addNutrientToProduct(self, product, nutrient):
         if (nutrient['Nutrient_name'] == 'Protein'):
