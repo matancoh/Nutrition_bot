@@ -20,10 +20,10 @@ class FoodEngineClient(object):
 
     def findProductByIngredientsTopFive(self, Ingredients):
         res = list()
-        products = self.nameIREngine.search(Ingredients)
+        products = self.ingredientsIREngine.search(Ingredients)
 
         for product in products:
-            res.append(self.nameIREngine.get(product[1]))
+            res.append(self.ingredientsIREngine.get(product[1]))
         return res
 
     def findProductByName(self, name):
@@ -33,6 +33,6 @@ class FoodEngineClient(object):
 
     def findProductByIngredients(self, Ingredients):
         products = self.ingredientsIREngine.search(Ingredients)
-        topProduct = self.nameIREngine.get(products[products.__len__()- 1][1])
+        topProduct = self.ingredientsIREngine.get(products[products.__len__()- 1][1])
         return topProduct
 
