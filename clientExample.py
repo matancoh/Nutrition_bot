@@ -1,4 +1,6 @@
 import EnginesClient
+import time
+
 
 
 engine = EnginesClient.FoodEngineClient()
@@ -9,6 +11,14 @@ for product in res:
 
 res = engine.findProductByName("mars")
 print(res.name)
+
+# measure time of find product
+start = int(round(time.time() * 1000))
+health = engine.findProductByIngredients(res.ingredients)
+end = int(round(time.time() * 1000))
+print(end - start)
+
+
 
 res = engine.findProductByIngredientsTopFive('nuts')
 for product in res:
