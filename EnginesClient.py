@@ -36,3 +36,6 @@ class FoodEngineClient(object):
         topProduct = self.ingredientsIREngine.get(products[products.__len__()- 1][1])
         return topProduct
 
+    def getProductById(self,id):
+        product = self.nameIREngine.products[id]
+        return product

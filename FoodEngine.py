@@ -18,6 +18,7 @@ class Paths:
 
 TEXT = "text"
 SIZE_OF_RESULTS = 5
+SIZE_OF_SEARCH_RESULTS = 1000
 
 
 class Product(object):
@@ -154,7 +155,7 @@ class FoodEngine(object):
 
         # making sure both words are in the inverted index
         if not index1 or not index2:
-            # incase on or more terms are not in the inverted there is no need to continue
+            # increase on or more terms are not in the inverted there is no need to continue
             return []
 
         res_indexes = []
@@ -244,11 +245,24 @@ class FoodEngine(object):
         self.idfTerms = termListIdf
 
     def _createSetOfDocs(self, termsList):  # create set of union docs for list of terms
-        docsSet = set()
+        productsIdSet = set()
+        sizeOfBatch = int(SIZE_OF_SEARCH_RESULTS / termsList.__len__())
+
         for term in termsList:
+            productsIdDic = {}
             if term in self.inverted_index:
-                docsSet.update(self.inverted_index[term])
-        return docsSet
+                productsIdDic = self.inverted_index[term].copy()
+                #for productId in self.inverted_index[term]:
+                 #   productsIdDic[productId] = self.inverted_index[term][productId]
+
+            sortedProducts = sorted(productsIdDic.__iter__(), key=lambda k: productsIdDic[k], reverse=True)
+            for index in range(sizeOfBatch):
+                if index == sortedProducts.__len__() - 1:
+                    break
+                else:
+                    productsIdSet.add(sortedProducts[index])
+
+        return productsIdSet
 
     def search(self, query):  # search and return the 5 top docs that much similar to query
         queryTermsList = self.index(query, tokenization_function)  # get the terms from query
