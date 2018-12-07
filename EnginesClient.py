@@ -15,6 +15,7 @@ class FoodEngineClient(object):
         products = self.nameIREngine.search(name)
 
         for product in products:
+            print(product)
             res.append(self.nameIREngine.get(product[1]))
         return res
 
@@ -39,3 +40,19 @@ class FoodEngineClient(object):
     def getProductById(self,id):
         product = self.nameIREngine.products[id]
         return product
+
+    def getMostHealtyFood(self, name):
+        res = None
+        product = self.findProductByName(name)
+        productsId = self.ingredientsIREngine.search(product.ingredients, numberOfResults = FoodEngine.SIZE_OF_RESULTS_HEALTH)
+
+        for productTuple in productsId:
+            productCurr = self.nameIREngine.get(productTuple[1])
+            if (productCurr.id != product.id) and (name.upper() not in productCurr.name.upper()):
+                if res == None:
+                    res = productCurr
+                elif productCurr.energy < res.energy:
+                        res = productCurr
+        return res
+
+

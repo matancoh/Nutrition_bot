@@ -1,6 +1,7 @@
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem.porter import *
+import operator
 import math
 import csv
 import string
@@ -11,15 +12,15 @@ import os
 
 
 class Paths:
-    FOOD_DB = '.\\Food DB\\'
-    ProductsCsv = FOOD_DB + 'Products.csv'
-    NutrientCsv = FOOD_DB + 'Nutrient.csv'
-    Engine_path = '.\\Engine\\'
+    FOOD_DB = os.path.join('.', 'Food DB')
+    ProductsCsv = os.path.join(FOOD_DB, 'Products.csv')
+    NutrientCsv = os.path.join(FOOD_DB, 'Nutrient.csv')
+    Engine_path = os.path.join('.', 'Engine')
 
 TEXT = "text"
 SIZE_OF_RESULTS = 5
-SIZE_OF_SEARCH_RESULTS = 1000
-
+SIZE_OF_SEARCH_RESULTS = 5000
+SIZE_OF_RESULTS_HEALTH = 100
 
 class Product(object):
     def __init__(self, _id):
@@ -121,6 +122,14 @@ class FoodEngine(object):
             elif self.type =='Ingredients':
                 tokens = self.index(raw_text.ingredients, tokenization_function)  # Get tokenized words
 
+            if self.type == 'Ingredients':
+                scores = list()
+                counter = tokens.__len__()
+            else:
+                counter = 1
+
+
+
             for word in tokens:
                 # If our inverted dict doesn't have this word, initiazlize a new key
                 if word not in temp_inverted:
@@ -129,13 +138,14 @@ class FoodEngine(object):
 
                 # add tf to inverted index
                 if index not in temp_inverted[word]:
-                    temp_inverted[word][index] = 1
+                    if counter == 1:
+                        temp_inverted[word][index] = 1
+                    else:
+                        temp_inverted[word][index] = 1 * counter
+                        counter = counter - 1
                 else:
                     temp_inverted[word][index] = temp_inverted[word][index] + 1
-
         self.inverted_index = temp_inverted
-        # do idf to all terms and create weight matrix
-        # self._createTfIdfToCorpus()
 
     def index(self, document_text, tokenization_function):
         terms = tokenization_function(document_text)
@@ -191,8 +201,8 @@ class FoodEngine(object):
         return list(set(lst))
 
 
-    def get(self, productName):
-        return self.products[productName]
+    def get(self, productId):
+        return self.products[productId]
 
     def _sizeOfDic(self):
         print(f'THE SIZE OF THE DICTIONARY IS: {len(self.inverted_index)}')
@@ -212,11 +222,11 @@ class FoodEngine(object):
         self._inverseDocFreq(self.inverted_index.keys()) # create idf for corpus
 
 
-    def _createTfIdfVectorForTerm(self, term, row, matrix, docsSet):
-        for doc in self.inverted_index[term]:  # do log(tf)*idf for every term
-            if doc in docsSet:
-                index = docsSet.index(doc)
-                matrix[row][index] = (1 + math.log10(self.inverted_index[term][doc])) * self.idfTerms[term]
+    def _createTfIdfVectorForTerm(self, term, row, matrix, productsSet):
+        for product in self.inverted_index[term]:  # do log(tf)*idf for every term
+            if product in productsSet:
+                index = productsSet.index(product)
+                matrix[row][index] = (1 + math.log10(self.inverted_index[term][product])) * self.idfTerms[term]
 
     def _createVectorTfIdfForQuery(self, termList):  # create vector for query
         termFreq = {}
@@ -250,49 +260,47 @@ class FoodEngine(object):
 
         for term in termsList:
             productsIdDic = {}
+            sortedProducts = {}
             if term in self.inverted_index:
                 productsIdDic = self.inverted_index[term].copy()
-                #for productId in self.inverted_index[term]:
-                 #   productsIdDic[productId] = self.inverted_index[term][productId]
-
-            sortedProducts = sorted(productsIdDic.__iter__(), key=lambda k: productsIdDic[k], reverse=True)
+                sortedProducts = sorted(productsIdDic.items(), key=operator.itemgetter(1), reverse=True)
             for index in range(sizeOfBatch):
                 if index == sortedProducts.__len__() - 1:
                     break
                 else:
-                    productsIdSet.add(sortedProducts[index])
+                    productsIdSet.add(sortedProducts[index][0])
 
         return productsIdSet
 
-    def search(self, query):  # search and return the 5 top docs that much similar to query
+    def search(self, query, numberOfResults = SIZE_OF_RESULTS):  # search and return the 5 top docs that much similar to query
         queryTermsList = self.index(query, tokenization_function)  # get the terms from query
-        docsSet = self._createSetOfDocs(queryTermsList)
+        productsSet = self._createSetOfDocs(queryTermsList)
         queryVector = self._createVectorTfIdfForQuery(queryTermsList)  # create vector from terms
 
-        docsSet = list(docsSet)
+        productsSet = list(productsSet)
         scores = []
 
         #create empty matrix
-        matrix = [[0 for x in range(docsSet.__len__())]
+        matrix = [[0 for x in range(productsSet.__len__())]
                  for y in range(queryTermsList.__len__())]
 
         #create matrix for the products
         row = 0  # counter of terms
         for term in queryTermsList:  # fill the matrix
-            self._createTfIdfVectorForTerm(term , row, matrix, docsSet)
+            self._createTfIdfVectorForTerm(term , row, matrix, productsSet)
             row = row + 1
 
-        for doc in docsSet:
-            docVector = list()
+        for product in productsSet:
+            productVector = list()
             for word in range(matrix.__len__()):
-                docVector.append(matrix[word][docsSet.index(doc)])
-            score = self._cosine(queryVector, docVector)
-            if len(scores) < SIZE_OF_RESULTS:
-                heapq.heappush(scores, (score, doc))
+                productVector.append(matrix[word][productsSet.index(product)])
+            score = self._cosine(queryVector, productVector)
+            if len(scores) < numberOfResults:
+                heapq.heappush(scores, (score, product))
             else:
                 if(scores[0][0] < score):
                     heapq.heappop(scores)
-                    heapq.heappush(scores, (score, doc))
+                    heapq.heappush(scores, (score, product))
 
         return scores
 
@@ -300,8 +308,10 @@ class FoodEngine(object):
         dotProduct = 0
         for index in range(vec1.__len__()):
             dotProduct = dotProduct + vec1[index] * vec2[index]
-
-        score = dotProduct #/ (self.normal(vec1) * self.normal(vec2))
+        if dotProduct != 0:
+            score = dotProduct / (self.normal(vec1) * self.normal(vec2))
+        else:
+            score = 0
         return score
 
     def normal(self, vec):

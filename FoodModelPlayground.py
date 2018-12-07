@@ -30,19 +30,19 @@ for id in res:
 
 
 #temp
-import FoodEngine
-#engineNames = FoodEngine.FoodEngine('Name')
-#engineNames.load_data()
-#engineNames.build_inverted_index()
-#engineNames._createIdfToCorpus()
-#engineNames.saveEngine()
-#engineNames.loadEngine()
-#engineIngredients = FoodEngine.FoodEngine('Ingredients')
-#engineIngredients.load_data()
-#engineIngredients.build_inverted_index()
-#engineIngredients._createIdfToCorpus()
-#engineIngredients.saveEngine()
-#engineIngredients.loadEngine()
+# import FoodEngine
+# #engineNames = FoodEngine.FoodEngine('Name')
+# #engineNames.load_data()
+# #engineNames.build_inverted_index()
+# #engineNames._createIdfToCorpus()
+# #engineNames.saveEngine()
+# #engineNames.loadEngine()
+# engineIngredients = FoodEngine.FoodEngine('Ingredients')
+# engineIngredients.load_data()
+# engineIngredients.build_inverted_index()
+# engineIngredients._createIdfToCorpus()
+# engineIngredients.saveEngine()
+# engineIngredients.loadEngine()
 
 #res = engineIngredients.search("milk")
 #engineIngredients.inverted_index['milk'].__len__()

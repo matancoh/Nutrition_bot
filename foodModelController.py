@@ -12,13 +12,13 @@ app = Flask(__name__)
 engines = None
 
 
-@app.route('/api/productByName/<name>', methods=['POST'])
+@app.route('/api/productByName/<name>', methods=['GET'])
 def product_by_name(name):
     if engines is None:
         engine = EnginesClient.FoodEngineClient()
 
     res = engine.findProductByName(name)
-    return jsonify(res)
+    return jsonify(res.name)
 
 
 @app.route('/api/topFiveProducts/<name>', methods=['POST'])
@@ -36,6 +36,5 @@ def product_by_id(id):
 
     res = engine.getProductById(id)
     return jsonify(res)
-
 
 
