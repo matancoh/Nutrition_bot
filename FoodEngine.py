@@ -324,15 +324,15 @@ class FoodEngine(object):
 
 
     def loadEngine(self):
-        with open('{}{}.pkl'.format(Paths.Engine_path, 'products'), 'rb') as input:
+        with open('{}.pkl'.format(os.path.join(Paths.Engine_path, 'products')), 'rb') as input:
             print("load products".format(self.type))
             self.products = pickle.load(input)
 
-        with open('{}{}.pkl'.format(Paths.Engine_path, 'engine{}'.format(self.type)), 'rb') as input:
+        with open('{}.pkl'.format(os.path.join(Paths.Engine_path, 'engine{}'.format(self.type))), 'rb') as input:
             print("load engine {}".format(self.type))
             self.inverted_index = pickle.load(input)
 
-        with open('{}{}.pkl'.format(Paths.Engine_path, 'idfTerms{}'.format(self.type)), 'rb') as input:
+        with open('{}.pkl'.format(os.path.join(Paths.Engine_path, 'idfTerms{}'.format(self.type))), 'rb') as input:
             print("load idf {}".format(self.type))
             self.idfTerms = pickle.load(input)
 
@@ -341,14 +341,14 @@ class FoodEngine(object):
         if not os.path.exists(Paths.Engine_path):
             os.makedirs(Paths.Engine_path)
 
-        with open('{}{}.pkl'.format(Paths.Engine_path, 'products'),'wb') as output:
+        with open('{}.pkl'.format(os.path.join(Paths.Engine_path, 'products')),'wb') as output:
             print("save products".format(self.type))
             pickle.dump(self.products, output)
 
-        with open('{}{}.pkl'.format(Paths.Engine_path, 'engine{}'.format(self.type)), 'wb') as output:
+        with open('{}.pkl'.format(os.path.join(Paths.Engine_path, 'engine{}'.format(self.type))), 'wb') as output:
             print("save engine {}".format(self.type))
             pickle.dump(self.inverted_index, output)
 
-        with open('{}{}.pkl'.format(Paths.Engine_path, 'idfTerms{}'.format(self.type)),'wb') as output:
+        with open('{}.pkl'.format(os.path.join(Paths.Engine_path, 'idfTerms{}'.format(self.type))),'wb') as output:
             print("save idf {}".format(self.type))
             pickle.dump(self.idfTerms, output)
