@@ -35,6 +35,19 @@ class Product(object):
         self.sugars = None
         self.sodium = None
 
+    def get(self, attrName):
+            return {
+                'id': self.id,
+                'name': self.name,
+                'manufacturer': self.manufacturer,
+                'ingredients': self.ingredients,
+                'protein': self.protein,
+                'fat': self.fat,
+                'carbohydrate': self.carbohydrate,
+                'calories': self.energy,
+                'sugar': self.sugars,
+                'sodium': self.sodium
+            }[attrName]
 
 def tokenization_function(raw_text):
     # lower case
