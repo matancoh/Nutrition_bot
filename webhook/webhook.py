@@ -1,29 +1,95 @@
 from flask import Flask
-import EnginesClient
-from Speech import Speech
+from EnginesClient import FoodEngineClient
 from flask_assistant import Assistant, ask, tell, request
 import logging
+
 
 logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
 app = Flask(__name__)
 assist = Assistant(app, route='/')
 
+class Speech:
+    GET_PARAM = "The {} for {} are {}"
+    ASK_PARAM = "for which food you want get {}?"
+
+
+############### PRODUCT ATTRIBUTE ###################
+@assist.action('ask_calories')
+def ask_calories():
+    speech = Speech.ASK_PARAM.format('calories')
+    return ask(speech)
+
+@assist.action('get_calories')
+def get_calories(name):
+    speech = getProductAttrByParam(name, 'calories')
+    return ask(speech)
+
+@assist.action('ask_fat')
+def ask_fat():
+    speech = Speech.ASK_PARAM.format('fat')
+    return ask(speech)
+
+@assist.action('get_fat')
+def get_fat(name):
+    speech = getProductAttrByParam(name, 'fat')
+    return ask(speech)
+
+@assist.action('ask_sugar')
+def ask_sugar():
+    speech = Speech.ASK_PARAM.format('sugar')
+    return ask(speech)
+
+@assist.action('get_sugar')
+def get_sugar(name):
+    speech = getProductAttrByParam(name, 'sugar')
+    return ask(speech)
+
+@assist.action('ask_protein')
+def ask_protein():
+    speech = Speech.ASK_PARAM.format('protein')
+    return ask(speech)
+
+@assist.action('get_protein')
+def get_protein(name):
+    speech = getProductAttrByParam(name, 'protein')
+    return ask(speech)
+
+@assist.action('ask_carbohydrate')
+def ask_carbohydrate():
+    speech = Speech.ASK_PARAM.format('carbohydrate')
+    return ask(speech)
+
+@assist.action('get_carbohydrate')
+def get_carbohydrate(name):
+    speech = getProductAttrByParam(name, 'carbohydrate')
+    return ask(speech)
+
+@assist.action('ask_sodium')
+def ask_sodium():
+    speech = Speech.ASK_PARAM.format('sodium')
+    return ask(speech)
+
+@assist.action('get_sodium')
+def get_sodium(name):
+    speech = getProductAttrByParam(name, 'sodium')
+    return ask(speech)
+
+
+def getProductAttrByParam(name ,productAttr):
+    res = FoodEngineClient.findProductByName(name)
+    speech = Speech.GET_PARAM.format(productAttr, name, res.get(productAttr))
+    return speech
+############### PRODUCT ATTRIBUTE ###################
+
+
+
+
+####################### AMIT FIRST TEST #################
 
 @assist.action('greeting')
 def greet_and_start():
     #pdb.set_trace()
     speech = "Hey! Are you male or female?"
-    return ask(speech)
-
-@assist.action('ask_calories')
-def ask_calories():
-    speech = Speech.GET_CALORIES
-    return ask(speech)
-
-@assist.action('get_calories')
-def get_calories(name):
-    res = EnginesClient.FoodEngineClient.findProductByName(name)
-    speech = "The calories for {} are {}".format(name, res.energy)
     return ask(speech)
 
 @assist.action("give-gender")
@@ -35,6 +101,8 @@ def ask_for_color(gender):
 
     speech = gender_msg + ' What is your favorite color?'
     return ask(speech)
+
+
 
 @assist.action('give-color', mapping={'color': 'sys.color'})
 def ask_for_season(color):
