@@ -1,4 +1,3 @@
-import pdb
 from flask import Flask
 import EnginesClient
 from flask_assistant import Assistant, ask, tell, request
@@ -16,7 +15,7 @@ def greet_and_start():
     return ask(speech)
 
 @assist.action('ask_calories')
-def ask_calories(name):
+def ask_calories():
     speech = "for which food you want get calories?"
     return ask(speech)
 
