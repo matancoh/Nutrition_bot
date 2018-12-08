@@ -20,3 +20,5 @@
   - peanutes: ['peanutes']
   - milk: ['milk']
   - gluten: ['gluten']
+product:
+  - pizza: ['pizza']

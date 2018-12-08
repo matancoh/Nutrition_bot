@@ -42,7 +42,6 @@ give-color:
   - I like red
   - My favorite color is red
   - blue
-
   Annotations:
   - blue: sys.color
   - red: sys.color
@@ -56,7 +55,17 @@ get-allergies:
   UserSays:
   - I'm allergic to peanuts
   - milk
-  
   Annotaitions:
   - peanuts: allergie 
   - milk: allergie
+
+ask_calories:
+  UserSays:
+  - check calories
+
+get_calories:
+  UserSays:
+  - pizza
+  Annotaitions:
+  - pizza: product
+

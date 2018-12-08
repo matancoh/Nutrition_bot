@@ -1,8 +1,8 @@
 #!/usr/local/bin/python3
 import sys
+import EnginesClient
 print(sys.executable)
 print(sys.version)
-import EnginesClient
 from flask import Flask, request, jsonify
 app = Flask(__name__)
 
