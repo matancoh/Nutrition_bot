@@ -1,8 +1,9 @@
 from flask import Flask
 import EnginesClient
+from Speech import Speech
 from flask_assistant import Assistant, ask, tell, request
-
 import logging
+
 logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
 app = Flask(__name__)
 assist = Assistant(app, route='/')
@@ -16,7 +17,7 @@ def greet_and_start():
 
 @assist.action('ask_calories')
 def ask_calories():
-    speech = "for which food you want get calories?"
+    speech = Speech.GET_CALORIES
     return ask(speech)
 
 @assist.action('get_calories')
