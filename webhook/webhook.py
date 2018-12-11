@@ -1,3 +1,5 @@
+import sys
+sys.path.append('/home/vmedu/Nutrition_bot')
 from flask import Flask
 from EnginesClient import FoodEngineClient
 from flask_assistant import Assistant, ask, tell, request

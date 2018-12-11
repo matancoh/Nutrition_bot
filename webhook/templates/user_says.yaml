@@ -67,7 +67,26 @@ ask_calories:
 
 get_calories:
   UserSays:
-  - pizza
+  - how many calories are in pizza?
+  - how many calories are in toast?
+  - how many calories are in cornflakes?
+  - how many calories are in hamburger?
+  - how many calories are in grilled chicken?
+  - how many calories are in belgian waffle?
+  - how many calories are in omelette?
+  - how many calories are in chicken soup?
+  - how many calories are in fruit salad?
+  - how many calories are in cheerios?
+  - how many calories are in fried wings?
+  - how many calories are in creme brulee?
+  - how many calories are in burrito?
+  - how many calories are in chocolate cake?
+  - how many calories are in taco?
+  - how many calories are in bigmac?
+  - how many calories are in cheetos?
+  - how many calories are in whipped cream?
+  - how many calories are in chicken sandwich?
+  - how many calories are in bacon?
   Annotaitions:
   - pizza: product
   - toast: product
