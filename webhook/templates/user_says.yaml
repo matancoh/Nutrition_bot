@@ -25,16 +25,16 @@ give-gender:
   - female: gender
   - girl: gender
   Events:
-  - 
+  -
 greeting:
   UserSays:
   - hi
   - hello
   Annotations:
-  - 
-  - 
+  -
+  -
   Events:
-  - 
+  -
 give-color:
   UserSays:
   - my color is blue
@@ -50,22 +50,42 @@ ask-allergies:
   UserSays:
   - I want to tell you my allergies
   - My allergies are
+  Annotations:
 
 get-allergies:
   UserSays:
   - I'm allergic to peanuts
   - milk
   Annotaitions:
-  - peanuts: allergie 
+  - peanuts: allergie
   - milk: allergie
 
 ask_calories:
   UserSays:
   - check calories
+  Annotations:
 
 get_calories:
   UserSays:
   - pizza
   Annotaitions:
   - pizza: product
-
+  - toast: product
+  - cornflakes: product
+  - hamburger: product
+  - grilled chicken: product
+  - belgian waffle: product
+  - omelette: product
+  - chicken soup: product
+  - fruit salad: product
+  - cheerios: product
+  - fried wings: product
+  - creme brulee: product
+  - burrito: product
+  - chocolate cake: product
+  - taco: product
+  - bigmac: product
+  - cheetos: product
+  - whipped cream: product
+  - chicken sandwich: product
+  - bacon: product

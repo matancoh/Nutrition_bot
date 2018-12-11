@@ -154,7 +154,7 @@ class FoodEngine(object):
                     if counter == 1:
                         temp_inverted[word][index] = 1
                     else:
-                        temp_inverted[word][index] = 1 * counter
+                        temp_inverted[word][index] = math.pow(2, counter)
                         counter = counter - 1
                 else:
                     temp_inverted[word][index] = temp_inverted[word][index] + 1
