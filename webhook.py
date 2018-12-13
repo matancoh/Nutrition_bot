@@ -8,12 +8,12 @@ import logging
 
 
 ############### REGULAR EXPRESSIONS#####################
-CALORIES_EXP = re.compile("how [many|much]+ calories in [a|an]+ (.*)")
+CALORIES_EXP = re.compile("how [many|much]+ calories ?are in [a|an]+ (.*)")
 FAT_EXP = re.compile("how [many|much]+ fat ?is in [a|an] (.*)")
-SUGAR_EXP = re.compile("how [many|much]+ calories in [a|an]+ (.*)")
-PROTEIN_EXP = re.compile("how [many|much]+ calories in [a|an]+ (.*)")
-CARBS_EXP = re.compile("how [many|much]+ calories in [a|an]+ (.*)")
-SODIUM_EXP = re.compile("how [many|much]+ calories in [a|an]+ (.*)")
+SUGAR_EXP = re.compile("how [many|much]+ sugar ?is in [a|an]+ (.*)")
+PROTEIN_EXP = re.compile("how [many|much]+ protein|proteins ?are in [a|an]+ (.*)")
+CARBS_EXP = re.compile("how [many|much]+ carbs|carbohydrates ?are in [a|an]+ (.*)")
+SODIUM_EXP = re.compile("how [many|much]+ sodium ?is in [a|an]+ (.*)")
 
 
 #####################################################
@@ -58,10 +58,10 @@ def ask_sugar():
     return ask(speech)
 
 @assist.action('get_sugar')
-def get_sugar(name):
+def get_sugar():
     query = SUGAR_EXP.findall(assist.request['result']['resolvedQuery'])
     print(query[0])
-    speech = getProductAttrByParam(name, 'sugar')
+    speech = getProductAttrByParam(query[0], 'sugar')
     return ask(speech)
 
 @assist.action('ask_protein')
@@ -70,10 +70,10 @@ def ask_protein():
     return ask(speech)
 
 @assist.action('get_protein')
-def get_protein(name):
+def get_protein():
     query = PROTEIN_EXP.findall(assist.request['result']['resolvedQuery'])
     print(query[0])
-    speech = getProductAttrByParam(name, 'protein')
+    speech = getProductAttrByParam(query[0], 'protein')
     return ask(speech)
 
 @assist.action('ask_carbohydrate')
@@ -82,10 +82,10 @@ def ask_carbohydrate():
     return ask(speech)
 
 @assist.action('get_carbohydrate')
-def get_carbohydrate(name):
+def get_carbohydrate():
     query = CARBS_EXP.findall(assist.request['result']['resolvedQuery'])
     print(query[0])
-    speech = getProductAttrByParam(name, 'carbohydrate')
+    speech = getProductAttrByParam(query[0], 'carbohydrate')
     return ask(speech)
 
 @assist.action('ask_sodium')
@@ -97,7 +97,7 @@ def ask_sodium():
 def get_sodium(name):
     query = SODIUM_EXP.findall(assist.request['result']['resolvedQuery'])
     print(query[0])
-    speech = getProductAttrByParam(name, 'sodium')
+    speech = getProductAttrByParam(query[0], 'sodium')
     return ask(speech)
 
 
