@@ -8,8 +8,12 @@ import logging
 
 
 ############### REGULAR EXPRESSIONS#####################
-CALORIES_EXP = re.compile("how many calories in [a]?[n]?(.*)")
-
+CALORIES_EXP = re.compile("how many|much calories in [a|an]?(.*)")
+FAT_EXP = re.compile("how much|much fat in [a|an]?(.*)")
+SUGAR_EXP = re.compile("how much sugar in [a|an]?(.*)")
+PROTEIN_EXP = re.compile("how much protein in [a|an]?(.*)")
+CARBS_EXP = re.compile("how much carbohydrates in [a|an]?(.*)")
+SODIUM_EXP = re.compile("how much sodium in [a|an]?(.*)")
 
 
 
@@ -44,6 +48,7 @@ def ask_fat():
 
 @assist.action('get_fat')
 def get_fat(name):
+    query = FAT_EXP.findall(assist.request['result']['resolvedQuery'])
     speech = getProductAttrByParam(name, 'fat')
     return ask(speech)
 
@@ -54,6 +59,7 @@ def ask_sugar():
 
 @assist.action('get_sugar')
 def get_sugar(name):
+    query = SUGAR_EXP.findall(assist.request['result']['resolvedQuery'])
     speech = getProductAttrByParam(name, 'sugar')
     return ask(speech)
 
@@ -64,6 +70,7 @@ def ask_protein():
 
 @assist.action('get_protein')
 def get_protein(name):
+    query = PROTEIN_EXP.findall(assist.request['result']['resolvedQuery'])
     speech = getProductAttrByParam(name, 'protein')
     return ask(speech)
 
@@ -74,6 +81,7 @@ def ask_carbohydrate():
 
 @assist.action('get_carbohydrate')
 def get_carbohydrate(name):
+    query = CARBS_EXP.findall(assist.request['result']['resolvedQuery'])
     speech = getProductAttrByParam(name, 'carbohydrate')
     return ask(speech)
 
@@ -84,6 +92,7 @@ def ask_sodium():
 
 @assist.action('get_sodium')
 def get_sodium(name):
+    query = SODIUM_EXP.findall(assist.request['result']['resolvedQuery'])
     speech = getProductAttrByParam(name, 'sodium')
     return ask(speech)
 
