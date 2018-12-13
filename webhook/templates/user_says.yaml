@@ -14,7 +14,6 @@
 #    - event1              # adds a triggerable event named 'event1' to the intent
 
 
-
 give-gender:
   UserSays:
   - male
@@ -87,6 +86,64 @@ get_calories:
   - how many calories are in whipped cream?
   - how many calories are in chicken sandwich?
   - how many calories are in bacon?
+  - how much calories are in pizza?
+  - how much calories are in toast?
+  - how much calories are in cornflakes?
+  - how much calories are in hamburger?
+  - how much calories are in grilled chicken?
+  - how much calories are in belgian waffle?
+  - how much calories are in omelette?
+  Annotaitions:
+  - pizza: product
+  - toast: product
+  - cornflakes: product
+  - hamburger: product
+  - grilled chicken: product
+  - belgian waffle: product
+  - omelette: product
+  - chicken soup: product
+  - fruit salad: product
+  - cheerios: product
+  - fried wings: product
+  - creme brulee: product
+  - burrito: product
+  - chocolate cake: product
+  - taco: product
+  - bigmac: product
+  - cheetos: product
+  - whipped cream: product
+  - chicken sandwich: product
+  - bacon: product
+
+  get_fat:
+  UserSays:
+  - how many fat are in pizza?
+  - how many fat are in toast?
+  - how many fat are in cornflakes?
+  - how many fat are in hamburger?
+  - how many fat are in grilled chicken?
+  - how many fat are in belgian waffle?
+  - how many fat are in omelette?
+  - how many fat are in chicken soup?
+  - how many fat are in fruit salad?
+  - how many fat are in cheerios?
+  - how many fat are in fried wings?
+  - how many fat are in creme brulee?
+  - how many fat are in burrito?
+  - how many fat are in chocolate cake?
+  - how many fat are in taco?
+  - how many fat are in bigmac?
+  - how many fat are in cheetos?
+  - how many fat are in whipped cream?
+  - how many fat are in chicken sandwich?
+  - how many fat are in bacon?
+  - how much fat are in pizza?
+  - how much fat are in toast?
+  - how much fat are in cornflakes?
+  - how much fat are in hamburger?
+  - how much fat are in grilled chicken?
+  - how much fat are in belgian waffle?
+  - how much fat are in omelette?
   Annotaitions:
   - pizza: product
   - toast: product
