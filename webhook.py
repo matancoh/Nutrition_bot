@@ -46,7 +46,7 @@ def ask_fat():
     return ask(speech)
 
 @assist.action('get_fat')
-def get_fat(name):
+def get_fat():
     query = FAT_EXP.findall(assist.request['result']['resolvedQuery'])
     print(query[0])
     speech = getProductAttrByParam(name, 'fat')
@@ -94,7 +94,7 @@ def ask_sodium():
     return ask(speech)
 
 @assist.action('get_sodium')
-def get_sodium(name):
+def get_sodium():
     query = SODIUM_EXP.findall(assist.request['result']['resolvedQuery'])
     print(query[0])
     speech = getProductAttrByParam(query[0], 'sodium')
