@@ -8,7 +8,7 @@ import logging
 
 
 ############### REGULAR EXPRESSIONS#####################
-CALORIES_EXP = re.compile("how many calories in a[n]? (.*))
+CALORIES_EXP = re.compile("how many calories in a[n]? (.*)")
 
 
 
@@ -23,6 +23,7 @@ class Speech:
     ASK_PARAM = "for which food you want get {}?"
 
 
+EngineClient = FoodEngineClient()
 ############### PRODUCT ATTRIBUTE ###################
 @assist.action('ask_calories')
 def ask_calories():
@@ -30,9 +31,9 @@ def ask_calories():
     return ask(speech)
 
 @assist.action('get_calories')
-def get_calories(name):
-    query = assist.request.resolvedQuery
-    name = CALORIES_EXP.findall(query)
+def get_calories(name):s
+    query = CALORIES_EXP.findall(assist.request['result']['resolvedQuery'])
+    print()
     speech = getProductAttrByParam(name[0], 'calories')
     return ask(speech)
 
