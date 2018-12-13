@@ -111,33 +111,33 @@ get_calories:
 
 get_fat:
   UserSays:
-  - how many fat are in pizza?
-  - how many fat are in toast?
-  - how many fat are in cornflakes?
-  - how many fat are in hamburger?
-  - how many fat are in grilled chicken?
-  - how many fat are in belgian waffle?
-  - how many fat are in omelette?
-  - how many fat are in chicken soup?
-  - how many fat are in fruit salad?
-  - how many fat are in cheerios?
-  - how many fat are in fried wings?
-  - how many fat are in creme brulee?
-  - how many fat are in burrito?
-  - how many fat are in chocolate cake?
-  - how many fat are in taco?
-  - how many fat are in bigmac?
-  - how many fat are in cheetos?
-  - how many fat are in whipped cream?
-  - how many fat are in chicken sandwich?
-  - how many fat are in bacon?
-  - how much fat are in pizza?
-  - how much fat are in toast?
-  - how much fat are in cornflakes?
-  - how much fat are in hamburger?
-  - how much fat are in grilled chicken?
-  - how much fat are in belgian waffle?
-  - how much fat are in omelette?
+  - how many fat in a pizza?
+  - how many fat in a toast?
+  - how many fat in a cornflakes?
+  - how many fat in an hamburger?
+  - how many fat in a grilled chicken?
+  - how many fat in a belgian waffle?
+  - how many fat in an omelette?
+  - how many fat in a chicken soup?
+  - how many fat in a fruit salad?
+  - how many fat in a cheerios?
+  - how many fat in a fried wings?
+  - how many fat in a creme brulee?
+  - how many fat in a burrito?
+  - how many fat in a chocolate cake?
+  - how many fat in a taco?
+  - how many fat in a bigmac?
+  - how many fat in cheetos?
+  - how many fat in whipped cream?
+  - how many fat in a chicken sandwich?
+  - how many fat in a bacon?
+  - how much fat in a pizza?
+  - how much fat in a toast?
+  - how much fat in a cornflakes?
+  - how much fat in an hamburger?
+  - how much fat in grilled chicken?
+  - how much fat in a belgian waffle?
+  - how much fat in anomelette?
   Annotaitions:
   - pizza: product
   - toast: product

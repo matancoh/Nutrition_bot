@@ -9,12 +9,11 @@ import logging
 
 ############### REGULAR EXPRESSIONS#####################
 CALORIES_EXP = re.compile("how [many|much]+ calories in [a|an]+ (.*)")
-FAT_EXP = re.compile("how [many|much]+ calories in [a|an]+ (.*)")
+FAT_EXP = re.compile("how [many|much]+ fat in [a|an]+ (.*)")
 SUGAR_EXP = re.compile("how [many|much]+ calories in [a|an]+ (.*)")
 PROTEIN_EXP = re.compile("how [many|much]+ calories in [a|an]+ (.*)")
 CARBS_EXP = re.compile("how [many|much]+ calories in [a|an]+ (.*)")
 SODIUM_EXP = re.compile("how [many|much]+ calories in [a|an]+ (.*)")
-
 
 
 #####################################################
