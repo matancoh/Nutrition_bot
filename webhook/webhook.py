@@ -89,7 +89,7 @@ def get_sodium(name):
 
 
 def getProductAttrByParam(name ,productAttr):
-    res = FoodEngineClient.findProductByName(name)
+    res =  EngineClient.findProductByName(name)
     speech = Speech.GET_PARAM.format(productAttr, name, res.get(productAttr))
     return speech
 ############### PRODUCT ATTRIBUTE ###################
