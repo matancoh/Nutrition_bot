@@ -8,7 +8,7 @@ import logging
 
 
 ############### REGULAR EXPRESSIONS#####################
-CALORIES_EXP = re.compile("how many calories in a[n]? apple")
+CALORIES_EXP = re.compile("how many calories in a[n]? (.*))
 
 
 
@@ -33,7 +33,7 @@ def ask_calories():
 def get_calories(name):
     query = assist.request.resolvedQuery
     name = CALORIES_EXP.findall(query)
-    speech = getProductAttrByParam(name, 'calories')
+    speech = getProductAttrByParam(name[0], 'calories')
     return ask(speech)
 
 @assist.action('ask_fat')
