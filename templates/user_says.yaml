@@ -40,6 +40,68 @@ give-color:
   - blue: sys.color
   - red: sys.color
 
+ask_menu:
+  UserSays:
+
+get_menu:
+  UserSays:
+  - i would like to get a new menu
+  - i would like to get a menu
+  - please give me a menu
+  - please get me a menu
+  - i need a new menu
+  - make me a menu
+  - please make me a menu
+  - please get me a new menu
+  - please give me a new menu
+
+ask_healthier:
+  UserSays:
+
+get_healthier:
+  UserSays:
+  - what is healthier than pizza?
+  - what's healthier than a toast?
+  - what's healthier than cornflakes?
+  - what is healthier than hambugrger?
+  - what's more healthy than grilled chicken?
+  - what's more healthy than belgian waffle?
+  - what's more healthy than an omlette?
+  - what's more healthy than a chicken soup?
+  - what is more healthy than a fruit salad?
+  - what is more healthy than cheerios?
+  - what is more healthy than fried wings?
+  - what's healthier than a creme brulee?
+  - what's healthier than a burrito?
+  - what's healthier than a chocolate cake?
+  - what is healthier than taco?
+  - what is healthier than a bigmac?
+  - what is healthier than cheetos?
+  - what's more heathy than whipped cream?
+  - what's healthier than a chicken sandwich?
+  - what is more healthy than bacon?
+  Annotaitions:
+  - pizza: product
+  - toast: product
+  - cornflakes: product
+  - hamburger: product
+  - grilled chicken: product
+  - belgian waffle: product
+  - omelette: product
+  - chicken soup: product
+  - fruit salad: product
+  - cheerios: product
+  - fried wings: product
+  - creme brulee: product
+  - burrito: product
+  - chocolate cake: product
+  - taco: product
+  - bigmac: product
+  - cheetos: product
+  - whipped cream: product
+  - chicken sandwich: product
+  - bacon: product
+
 ask-allergies:
   UserSays:
   - I want to tell you my allergies
@@ -48,11 +110,49 @@ ask-allergies:
 
 get-allergies:
   UserSays:
-  - I'm allergic to peanuts
-  - milk
+  - what allergens are in pizza?
+  - what allergens are in a toast?
+  - what allergens are in cornflakes?
+  - what are the allergens in hamburger?
+  - what are the allergens in grilled chicken?
+  - what are the allergens in a beligian waffle?
+  - what allergens are in an omlette?
+  - what allergens are in a chicken soup?
+  - what allergens are in fruit salad?
+  - what allergens is in cheerios?
+  - what are the allergens fried wings?
+  - what are the allergens in a creme brulee?
+  - what allergens in burrito?
+  - what allergens chocolate cake have?
+  - what allergens taco has?
+  - what allergens a bigmac have?
+  - what allergens cheetos has?
+  - what are the allergens whipped cream has?
+  - what are the allergens chicken sandwich have?
+  - what are the allergens a bacon has?
   Annotaitions:
-  - peanuts: allergie
-  - milk: allergie
+  - pizza: product
+  - toast: product
+  - cornflakes: product
+  - hamburger: product
+  - grilled chicken: product
+  - belgian waffle: product
+  - omelette: product
+  - chicken soup: product
+  - fruit salad: product
+  - cheerios: product
+  - fried wings: product
+  - creme brulee: product
+  - burrito: product
+  - chocolate cake: product
+  - taco: product
+  - bigmac: product
+  - cheetos: product
+  - whipped cream: product
+  - chicken sandwich: product
+  - bacon: product
+#  - peanuts: allergie
+#  - milk: allergie
 
 ask_calories:
   UserSays:
@@ -162,24 +262,24 @@ get_fat:
 
 get_sugar:
   UserSays:
-  - how many sugar in a pizza?
-  - how many sugar in a toast?
-  - how many sugar in a cornflakes?
-  - how many sugar in an hamburger?
-  - how many sugar in a grilled chicken?
-  - how many sugar in a belgian waffle?
-  - how many sugar in an omelette?
-  - how many sugar in a chicken soup?
-  - how many sugar in a fruit salad?
-  - how many sugar in a cheerios?
-  - how many sugar in a fried wings?
-  - how many sugar in a creme brulee?
-  - how many sugar in a burrito?
-  - how many sugar in a chocolate cake?
-  - how many sugar in a taco?
-  - how many sugar in a bigmac?
-  - how many sugar in cheetos?
-  - how much sugar isin whipped cream?
+  - how much sugar in a pizza?
+  - how much sugar in a toast?
+  - how much sugar in a cornflakes?
+  - how much sugar in an hamburger?
+  - how much sugar in a grilled chicken?
+  - how much sugar in a belgian waffle?
+  - how much sugar in an omelette?
+  - how much sugar in a chicken soup?
+  - how much sugar in a fruit salad?
+  - how much sugar in a cheerios?
+  - how much sugar in a fried wings?
+  - how much sugar in a creme brulee?
+  - how much sugar in a burrito?
+  - how much sugar in a chocolate cake?
+  - how much sugar in a taco?
+  - how much sugar in a bigmac?
+  - how much sugar is in cheetos?
+  - how much sugar is in whipped cream?
   - how much sugar is in a chicken sandwich?
   - how much sugar is in a bacon?
   - how much sugar is in a pizza?
@@ -279,3 +379,10 @@ get_sodium:
   - how much sodium is in grilled chicken?
   - how much sodium is in a belgian waffle?
   - how much sodium is in anomelette?
+
+get_gluten:
+  UserSays:
+  - does pizza has gluten?
+  - does a toast has gluten?
+  - do conrflakes have gluten?
+  -
