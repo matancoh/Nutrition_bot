@@ -8,7 +8,7 @@ import logging
 
 
 ############### REGULAR EXPRESSIONS#####################
-CALORIES_EXP = re.compile("how [many|much]+ calories in [a|an]?(.*)")
+CALORIES_EXP = re.compile("how [many|much]+ calories in [an|a]+[ ]?(.*)")
 FAT_EXP = re.compile("how much|much fat in [a|an]?(.*)")
 SUGAR_EXP = re.compile("how much sugar in [a|an]?(.*)")
 PROTEIN_EXP = re.compile("how much protein in [a|an]?(.*)")
