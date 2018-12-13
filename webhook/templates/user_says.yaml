@@ -23,17 +23,12 @@ give-gender:
   - male: gender
   - female: gender
   - girl: gender
-  Events:
-  -
+
 greeting:
   UserSays:
   - hi
   - hello
-  Annotations:
-  -
-  -
-  Events:
-  -
+
 give-color:
   UserSays:
   - my color is blue
@@ -49,7 +44,7 @@ ask-allergies:
   UserSays:
   - I want to tell you my allergies
   - My allergies are
-  Annotations:
+
 
 get-allergies:
   UserSays:
@@ -62,7 +57,6 @@ get-allergies:
 ask_calories:
   UserSays:
   - check calories
-  Annotations:
 
 get_calories:
   UserSays:
@@ -115,7 +109,7 @@ get_calories:
   - chicken sandwich: product
   - bacon: product
 
-  get_fat:
+get_fat:
   UserSays:
   - how many fat are in pizza?
   - how many fat are in toast?
