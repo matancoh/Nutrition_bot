@@ -31,6 +31,8 @@ def ask_calories():
 
 @assist.action('get_calories')
 def get_calories(name):
+    query = assist.request.resolvedQuery
+    name = CALORIES_EXP.findall(query)
     speech = getProductAttrByParam(name, 'calories')
     return ask(speech)
 
