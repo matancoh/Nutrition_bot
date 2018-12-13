@@ -20,7 +20,7 @@
   - peanutes: ['peanutes']
   - milk: ['milk']
   - gluten: ['gluten']
-product:
+ product:
   - pizza: ['pizza']
   - toast: ['toast']
   - cornflakes: ['cornflakes']
