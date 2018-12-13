@@ -8,7 +8,7 @@ import logging
 
 
 ############### REGULAR EXPRESSIONS#####################
-CALORIES_EXP = re.compile("how many calories in [a]?[n]? (.*)")
+CALORIES_EXP = re.compile("how many calories in [a]?[n]?(.*)")
 
 
 
