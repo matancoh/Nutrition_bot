@@ -31,10 +31,10 @@ def ask_calories():
     return ask(speech)
 
 @assist.action('get_calories')
-def get_calories(name):s
+def get_calories(name):
     query = CALORIES_EXP.findall(assist.request['result']['resolvedQuery'])
-    print()
-    speech = getProductAttrByParam(name[0], 'calories')
+    print(query[0])
+    speech = getProductAttrByParam(query[0], 'calories')
     return ask(speech)
 
 @assist.action('ask_fat')
