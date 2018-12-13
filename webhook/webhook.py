@@ -1,11 +1,19 @@
 import sys
 sys.path.append('/home/vmedu/Nutrition_bot')
+import re
 from flask import Flask
 from EnginesClient import FoodEngineClient
 from flask_assistant import Assistant, ask, tell, request
 import logging
 
 
+############### REGULAR EXPRESSIONS#####################
+CALORIES_EXP = re.compile.("how many calories in a[n]? apple")
+
+
+
+
+#####################################################
 logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
 app = Flask(__name__)
 assist = Assistant(app, route='/')
