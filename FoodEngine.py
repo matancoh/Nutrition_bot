@@ -34,6 +34,7 @@ class Product(object):
         self.energy = None
         self.sugars = None
         self.sodium = None
+        self.fatSaturated = None
 
     def get(self, attrName):
             return {
@@ -46,7 +47,8 @@ class Product(object):
                 'carbohydrate': self.carbohydrate,
                 'calories': self.energy,
                 'sugar': self.sugars,
-                'sodium': self.sodium
+                'sodium': self.sodium,
+                'fatSaturated' : self.fatSaturated
             }[attrName]
 
 def tokenization_function(raw_text):
@@ -96,7 +98,8 @@ class FoodEngine(object):
                                                                         nutrientProduct)
         for productId in data:
             product = data.get(productId)
-            if product.energy is not None:
+            if (product.energy is not None) and (product.sugars is not None) and (product.sodium is not None) \
+                    and (product.fatSaturated is not None):
                 dataAfterFilter[product.id] = product
 
         self.products = dataAfterFilter
@@ -114,6 +117,8 @@ class FoodEngine(object):
             product.sodium = nutrient['Output_value']
         elif (nutrient['Nutrient_name'] == 'Sugars, total'):
             product.sugars = nutrient['Output_value']
+        elif (nutrient['Nutrient_name'] == 'Fatty acids, total saturated'):
+            product.fatSaturated = nutrient['Output_value']
 
         return product
 
@@ -136,7 +141,6 @@ class FoodEngine(object):
                 tokens = self.index(raw_text.ingredients, tokenization_function)  # Get tokenized words
 
             if self.type == 'Ingredients':
-                scores = list()
                 counter = tokens.__len__()
             else:
                 counter = 1
