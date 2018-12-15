@@ -1,5 +1,15 @@
 import FoodEngine
 
+
+class HealthStatus:
+    HealtyFood = 'Healty Food'
+    HighSuger = 'High Suger'
+    HighSodium = 'High Sodium'
+    HighFatSaturated = 'High Fat Saturated'
+
+class Allergy:
+    Celiac = {'name': 'Celiac','ingredients': ['wheat', 'barley', 'rye', 'oatmeal', 'oat']}
+
 class FoodEngineClient(object):
     def __init__(self):
         self.ingredientsIREngine = self.loadEngine('Ingredients')
@@ -24,18 +34,59 @@ class FoodEngineClient(object):
         product = self.nameIREngine.products[id]
         return product
 
-    def getMostHealtyFood(self, name):
-        res = None
+    def getHealtyFood(self, name):
+        # if res == None than the food is healthy
+        res : FoodEngine.Product = None
         product = self.findProductByName(name)
-        productsId = self.ingredientsIREngine.search(product.ingredients, numberOfResults = FoodEngine.SIZE_OF_RESULTS_HEALTH)
+        productStatus = self.getHealthStatus(product)
 
-        for productTuple in productsId:
-            productCurr = self.nameIREngine.get(productTuple[1])
-            if (productCurr.id != product.id) and (name.upper() not in productCurr.name.upper()):
-                if res == None:
-                    res = productCurr
-                elif productCurr.energy < res.energy:
-                        res = productCurr
+        if HealthStatus.HealtyFood in productStatus:
+            return None
+        else:
+            productsId = self.ingredientsIREngine.search(product.ingredients, numberOfResults = FoodEngine.SIZE_OF_RESULTS_HEALTH)
+            for productTuple in productsId:
+                productCurr : FoodEngine.Product = self.nameIREngine.get(productTuple[1])
+                if (productCurr.id != product.id):
+                    foodStatus = self.getHealthStatus(productCurr)
+                    res = self.compareProducts(foodStatus, productCurr, res)
+            return res
+
+    def compareProducts(self, foodStatus, productCurr, res):
+        if (res == None) and (HealthStatus.HealtyFood in foodStatus):
+            res = productCurr
+        elif (res != None) and float(productCurr.fatSaturated) < float(res.fatSaturated) and float(
+                productCurr.sugars) < float(res.sugars) and float(productCurr.sodium) < float(res.sodium) and (HealthStatus.HealtyFood in foodStatus):
+            res = productCurr
+        return res
+
+    def getHealthStatus(self, product: FoodEngine.Product):
+        res = []
+        isHighSodium = float(product.sodium) >= 400.0
+        isHighSugar = float(product.sugars) >= 10.0
+        isHighFatSaturated = float(product.fatSaturated) >= 4.0
+
+        # check if health parameter
+        if isHighSodium:
+            res.append(HealthStatus.HighSodium)
+        if isHighFatSaturated:
+            res.append(HealthStatus.HighFatSaturated)
+        if isHighSugar:
+            res.append(HealthStatus.HighSuger)
+        # if have good in any paramater food is healty
+        if res.__len__() == 0:
+            res.append(HealthStatus.HealtyFood)
+        return res
+
+    def checkAllergies(self, product):
+        res = []
+        # if res == None than the food is healthy
+        ingredientsTerms = FoodEngine.tokenization_function(product.ingredients)
+        for term in Allergy.Celiac['ingredients']:
+            termAfterTokenization = FoodEngine.tokenization_function(term)
+            if termAfterTokenization[0] in ingredientsTerms:
+                if Allergy.Celiac.get('name') not in res:
+                    res.append(Allergy.Celiac.get('name'))
+
         return res
 
 
