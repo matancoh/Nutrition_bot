@@ -10,23 +10,6 @@ class FoodEngineClient(object):
         engine.loadEngine()
         return engine
 
-    def findProductByNameTopFive(self, name):
-        res = list()
-        products = self.nameIREngine.search(name)
-
-        for product in products:
-            print(product)
-            res.append(self.nameIREngine.get(product[1]))
-        return res
-
-    def findProductByIngredientsTopFive(self, Ingredients):
-        res = list()
-        products = self.ingredientsIREngine.search(Ingredients)
-
-        for product in products:
-            res.append(self.ingredientsIREngine.get(product[1]))
-        return res
-
     def findProductByName(self, name):
         products = self.nameIREngine.search(name)
         topProduct = self.nameIREngine.get(products[products.__len__()- 1][1])
