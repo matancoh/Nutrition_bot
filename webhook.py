@@ -3,7 +3,7 @@ sys.path.append('/home/vmedu/Nutrition_bot')
 import re
 from flask import Flask
 from EnginesClient import FoodEngineClient
-from flask_assistant import Assistant, ask, tell, request
+from flask_assistant import Assistant, ask, tell, request, event, build_item
 from flask_assistant import context_manager
 import logging
 
@@ -96,7 +96,7 @@ def ask_sodium():
 
 @assist.action('get_sodium')
 def get_sodium():
-    query = SODIUM_EXP.findall(assist.request['result']['resolvedQuery'])
+    query = SODIUM_EXP.findall(assist.request['result']['resolvedQuery'])python
     print(query[0])
     speech = getProductAttrByParam(query[0], 'sodium')
     return ask(speech)
