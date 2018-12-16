@@ -285,4 +285,8 @@ get_gluten:
   - does pizza has gluten?
   - does a toast has gluten?
   - do conrflakes have gluten?
-  -
+
+start-allergies:
+  UserSays:
+  - I want to check food for allergies
+  - check food for allergies
