@@ -135,17 +135,16 @@ def start_allergies():
     speech = "sure, to what food you are allergic to?"
     #return ask(speech)
     ask(speech)
-    return event('get_allergy')
+    return ask(speech)
 
-@assist.action('get-allergy')
-def get_allergy(allergy):
+
+@assist.action('get-allergies')
+def get_allergies(allergy):
     context_manager.set('allergies','allergy',allergy)
     print("amit, Done....")
     return tell("thanks! :)")
   
-# @assist.promt_for('allergy', intent_name='')
-# def promt_allergy(allergy):
-    # spee
+
     
 
 @assist.action('give-color', mapping={'color': 'sys.color'})

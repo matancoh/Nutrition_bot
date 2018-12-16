@@ -40,20 +40,6 @@ give-color:
   - blue: sys.color
   - red: sys.color
 
-ask-allergies:
-  UserSays:
-  - I want to tell you my allergies
-  - My allergies are
-
-
-get-allergies:
-  UserSays:
-  - I'm allergic to peanuts
-  - milk
-  Annotaitions:
-  - peanuts: allergie
-  - milk: allergie
-
 ask_calories:
   UserSays:
   - check calories
@@ -290,3 +276,6 @@ start-allergies:
   UserSays:
   - I want to check food for allergies
   - check food for allergies
+give-allergies:
+  UserSays:
+  - I'm allergic to pe
