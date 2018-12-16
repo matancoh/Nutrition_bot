@@ -133,10 +133,10 @@ def ask_for_color(gender):
 def start_allergies():
     context_manager.add('allergies')
     speech = "sure, to what food you are allergic to?"
-    #return ask(speech)
-    ask(speech)
+    
     return ask(speech)
 
+@assist.context('allergies')
 @assist.action('get-allergies')
 def get_allergies(allergans):
     context_manager.set('allergies','allergy',allergans)
