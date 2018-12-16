@@ -288,3 +288,9 @@ get-allergies:
   - gluten: allergan
   - lactuse: allergan
   - nuts: allergan
+  
+  
+get-good:
+  userSays:
+  - cake
+  - pizza
