@@ -10,9 +10,9 @@ class HealthStatus:
 class Allergy:
     Celiac = {'name': 'Celiac','ingredients': ['wheat', 'barley', 'rye', 'oatmeal', 'oat', 'flour']}
     Lactose = {'name': 'Lactose', 'ingredients': ['milk', 'LACTOSE', 'MILKFAT']}
-    Peanuts = {'name': 'Lactose', 'ingredients': ['peanut', 'PEANUTS']}
-    Nuts = {'name': 'Lactose', 'ingredients': ['nut', 'walnut', 'filbert','ALMONDS','Pecan', 'coconut','pistachios','PECANS']}
-    Soya = {'name': 'Lactose', 'ingredients': ['soya', 'soy']}
+    Peanuts = {'name': 'Peanuts', 'ingredients': ['peanut', 'PEANUTS']}
+    Nuts = {'name': 'Nuts', 'ingredients': ['nut', 'walnut', 'filbert','ALMONDS','Pecan', 'coconut','pistachios','PECANS']}
+    Soya = {'name': 'Soya', 'ingredients': ['soya', 'soy']}
 
 class FoodEngineClient(object):
     def __init__(self):
