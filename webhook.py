@@ -96,7 +96,7 @@ def ask_sodium():
 
 @assist.action('get_sodium')
 def get_sodium():
-    query = SODIUM_EXP.findall(assist.request['result']['resolvedQuery'])python
+    query = SODIUM_EXP.findall(assist.request['result']['resolvedQuery'])
     print(query[0])
     speech = getProductAttrByParam(query[0], 'sodium')
     return ask(speech)
