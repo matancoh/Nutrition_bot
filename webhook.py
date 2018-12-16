@@ -144,7 +144,7 @@ def get_allergies(allergans):
     return ask(speech)
 
 @assist.context('allergies')
-@assist.action('get-allergies')
+@assist.action('get-food')
 def get_food(food):
     speech = food
     tell(food)

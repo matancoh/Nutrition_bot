@@ -290,7 +290,7 @@ get-allergies:
   - nuts: allergan
   
   
-get-good:
+get-food:
   userSays:
   - cake
   - pizza
