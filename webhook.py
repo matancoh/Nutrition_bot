@@ -134,6 +134,7 @@ def start_allergies():
     context_manager.add('allergies')
     speech = "sure, to what food you are allergic to?"
     #return ask(speech)
+    ask(speech)
     return event('get_allergy')
 
 @assist.action('get-allergy')
