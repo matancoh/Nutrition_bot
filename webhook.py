@@ -27,7 +27,7 @@ class Speech:
     ASK_PARAM = "for which food you want get {}?"
 
 
-EngineClient = FoodEngineClient()
+engineClient = FoodEngineClient()
 ############### PRODUCT ATTRIBUTE ###################
 @assist.action('ask_calories')
 def ask_calories():
@@ -50,7 +50,7 @@ def ask_fat():
 def get_fat():
     query = FAT_EXP.findall(assist.request['result']['resolvedQuery'])
     print(query[0])
-    speech = getProductAttrByParam(name, 'fat')
+    speech = getProductAttrByParam(query[0], 'fat')
     return ask(speech)
 
 @assist.action('ask_sugar')
@@ -104,7 +104,7 @@ def get_sodium():
 
 
 def getProductAttrByParam(name ,productAttr):
-    res =  EngineClient.findProductByName(name)
+    res = engineClient.findProductByName(name)
     speech = Speech.GET_PARAM.format(productAttr, name, res.get(productAttr))
     return speech
 ############### PRODUCT ATTRIBUTE ###################
