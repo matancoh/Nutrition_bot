@@ -301,6 +301,12 @@ class FoodEngine(object):
         matrix = [[0 for x in range(productsSet.__len__())]
                  for y in range(queryTermsList.__len__())]
 
+        for productId in self.products:
+            product = self.products[productId]
+            if product.name.upper() == query.upper():
+                scores.append((1.0, productId))
+                return scores
+
         #create matrix for the products
         row = 0  # counter of terms
         for term in queryTermsList:  # fill the matrix
