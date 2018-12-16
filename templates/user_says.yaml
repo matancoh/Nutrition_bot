@@ -294,3 +294,6 @@ get-food:
   userSays:
   - cake
   - pizza
+  Annotaitions:
+  - cake: product
+  - pizza: product
