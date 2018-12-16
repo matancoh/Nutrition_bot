@@ -279,3 +279,12 @@ get_sodium:
   - how much sodium is in grilled chicken?
   - how much sodium is in a belgian waffle?
   - how much sodium is in anomelette?
+  
+  
+start_allergy:
+  UserSays:
+    - i want to check if food is safe for me
+    
+get_allergies:
+  UserSays:
+    - 

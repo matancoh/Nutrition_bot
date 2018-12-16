@@ -4,6 +4,7 @@ import re
 from flask import Flask
 from EnginesClient import FoodEngineClient
 from flask_assistant import Assistant, ask, tell, request
+from flask_assistant import context_manager
 import logging
 
 
@@ -96,6 +97,7 @@ def ask_sodium():
 @assist.action('get_sodium')
 def get_sodium():
     query = SODIUM_EXP.findall(assist.request['result']['resolvedQuery'])
+    print query
     print(query[0])
     speech = getProductAttrByParam(query[0], 'sodium')
     return ask(speech)
@@ -128,7 +130,23 @@ def ask_for_color(gender):
     speech = gender_msg + ' What is your favorite color?'
     return ask(speech)
 
+@assist.action('start-allergies')
+def start_allergies():
+    context_manager.add('allergies')
+    speech = "sure, to what food you are allergic to?"
+    #return ask(speech)
+    return event('get_allergy')
 
+@assist.action('get-allergy')
+def get_allergy(allergy):
+    context_manager.set('allergies','allergy',allergy)
+    print("amit, Done....")
+    return tell("thanks! :)")
+  
+# @assist.promt_for('allergy', intent_name='')
+# def promt_allergy(allergy):
+    # spee
+    
 
 @assist.action('give-color', mapping={'color': 'sys.color'})
 def ask_for_season(color):
