@@ -276,6 +276,15 @@ start-allergies:
   UserSays:
   - I want to check food for allergies
   - check food for allergies
-give-allergies:
+  
+get-allergies:
   UserSays:
-  - I'm allergic to pe
+  - I'm allergic to milk
+  - I'm allergic to gluten
+  - lactuse 
+  - nuts
+  Annotaitions:
+  - milk: allergan
+  - gluten: allergan
+  - lactuse: allergan
+  - nuts: allergan

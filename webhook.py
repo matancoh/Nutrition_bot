@@ -137,30 +137,11 @@ def start_allergies():
     ask(speech)
     return ask(speech)
 
-
 @assist.action('get-allergies')
-def get_allergies(allergy):
-    context_manager.set('allergies','allergy',allergy)
+def get_allergies(allergans):
+    context_manager.set('allergies','allergy',allergans)
     print("amit, Done....")
     return tell("thanks! :)")
-  
-
-    
-
-@assist.action('give-color', mapping={'color': 'sys.color'})
-def ask_for_season(color):
-    speech = 'Ok, {} is an okay color I guess'.format(color)
-    return ask(speech)
-
-@assist.action('ask-allergies')
-def ask_for_allergies():
-    speech = "Hey, what are your allergies?"
-    return ask(speech)
-
-@assist.action('give-allergies')
-def give_allergies(allergie):
-    speech = "ok so you are allergic to  {}".format(allergie)
-    return ask(speech)
 
 if __name__ == '__main__':
     app.run(debug=True)
