@@ -8,7 +8,11 @@ class HealthStatus:
     HighFatSaturated = 'High Fat Saturated'
 
 class Allergy:
-    Celiac = {'name': 'Celiac','ingredients': ['wheat', 'barley', 'rye', 'oatmeal', 'oat']}
+    Celiac = {'name': 'Celiac','ingredients': ['wheat', 'barley', 'rye', 'oatmeal', 'oat', 'flour']}
+    Lactose = {'name': 'Lactose', 'ingredients': ['milk', 'LACTOSE', 'MILKFAT']}
+    Peanuts = {'name': 'Lactose', 'ingredients': ['peanut', 'PEANUTS']}
+    Nuts = {'name': 'Lactose', 'ingredients': ['nut', 'walnut', 'filbert','ALMONDS','Pecan', 'coconut','pistachios','PECANS']}
+    Soya = {'name': 'Lactose', 'ingredients': ['soya', 'soy']}
 
 class FoodEngineClient(object):
     def __init__(self):
@@ -81,12 +85,18 @@ class FoodEngineClient(object):
         res = []
         # if res == None than the food is healthy
         ingredientsTerms = FoodEngine.tokenization_function(product.ingredients)
-        for term in Allergy.Celiac['ingredients']:
+        self.addAllergy(Allergy.Celiac, ingredientsTerms, res)
+        self.addAllergy(Allergy.Lactose, ingredientsTerms, res)
+        self.addAllergy(Allergy.Peanuts, ingredientsTerms, res)
+        self.addAllergy(Allergy.Nuts, ingredientsTerms, res)
+        self.addAllergy(Allergy.Soya, ingredientsTerms, res)
+        return res
+
+    def addAllergy(self, allergy, ingredientsTerms, res):
+        for term in allergy['ingredients']:
             termAfterTokenization = FoodEngine.tokenization_function(term)
             if termAfterTokenization[0] in ingredientsTerms:
-                if Allergy.Celiac.get('name') not in res:
-                    res.append(Allergy.Celiac.get('name'))
-
-        return res
+                if allergy.get('name') not in res:
+                    res.append(allergy.get('name'))
 
 
