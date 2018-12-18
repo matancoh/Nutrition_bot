@@ -139,7 +139,7 @@ def start_allergies():
 @assist.context('allergies')
 @assist.action('get-allergies')
 def get_allergies(allergan):
-    context_manager.set('allergies','allergy',allergans)
+    context_manager.set('allergies','allergy',allergan)
     speech = "Ok, and what food you would like to check?"
     return ask(speech)
 
