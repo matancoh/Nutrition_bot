@@ -121,7 +121,6 @@ def getProductAttrByParam(name ,productAttr):
 
 @assist.action('greeting')
 def greet_and_start():
-    #pdb.set_trace()
     speech = "Hey! Are you male or female?"
     return ask(speech)
 
