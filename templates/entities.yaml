@@ -18,7 +18,7 @@
   - female: ['woman', 'girl', 'gal']
  allergan:
   - peanutes: ['peanutes']
-  - lactuse: ['milk', 'lactuse']
+  - lactose: ['milk', 'lactose']
   - gluten: ['gluten']
   - nuts: ['nut', 'walnut', 'filbert','almonds','Pecan', 'coconut','pistachios','pecans']
  product:
