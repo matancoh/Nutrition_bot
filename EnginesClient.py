@@ -9,9 +9,9 @@ class HealthStatus:
 
 class Allergy:
     Celiac = {'name': 'celiac','ingredients': ['wheat', 'barley', 'rye', 'oatmeal', 'oat', 'flour']}
-    Lactose = {'name': 'lactose', 'ingredients': ['milk', 'LACTOSE', 'MILKFAT']}
-    Peanuts = {'name': 'peanuts', 'ingredients': ['peanut', 'PEANUTS']}
-    Nuts = {'name': 'nuts', 'ingredients': ['nut', 'walnut', 'filbert','ALMONDS','Pecan', 'coconut','pistachios','PECANS']}
+    Lactose = {'name': 'lactose', 'ingredients': ['milk', 'lactose', 'milkfat']}
+    Peanuts = {'name': 'peanuts', 'ingredients': ['peanut', 'peanuts']}
+    Nuts = {'name': 'nuts', 'ingredients': ['nut', 'walnut', 'filbert','almond','Pecan', 'coconut','pistachios','pecans']}
     Soya = {'name': 'soy', 'ingredients': ['soya', 'soy']}
 
 class FoodEngineClient(object):
