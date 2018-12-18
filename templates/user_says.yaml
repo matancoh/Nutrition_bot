@@ -294,6 +294,12 @@ get-food:
   userSays:
   - cake
   - pizza
+  - toast
+  - taco
+  - cheetos
   Annotaitions:
   - cake: product
   - pizza: product
+  - toast: product
+  - taco: product
+  - cheetos: product
