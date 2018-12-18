@@ -138,16 +138,16 @@ def start_allergies():
 
 @assist.context('allergies')
 @assist.action('get-allergies')
-def get_allergies(allergans):
+def get_allergies(allergan):
     context_manager.set('allergies','allergy',allergans)
     speech = "Ok, and what food you would like to check?"
     return ask(speech)
 
 @assist.context('allergies')
 @assist.action('get-food')
-def get_food(food):
-    speech = food
-    tell(food)
+def get_food(product):
+    speech = product
+    tell(speech)
 
 if __name__ == '__main__':
     app.run(debug=True)
