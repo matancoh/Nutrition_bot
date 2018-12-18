@@ -139,6 +139,7 @@ def start_allergies():
 @assist.context('allergies')
 @assist.action('get-allergies')
 def get_allergies(allergan):
+    print(allergan)
     context_manager.set('allergies','allergy',allergan)
     speech = "Ok, and what food you would like to check?"
     return ask(speech)
@@ -146,7 +147,7 @@ def get_allergies(allergan):
 @assist.context('allergies')
 @assist.action('get-food')
 def get_food(product):
-    speech = product
+    speech = "Let me check %s for you" % product
     tell(speech)
 
 if __name__ == '__main__':
