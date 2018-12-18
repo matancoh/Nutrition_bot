@@ -279,14 +279,15 @@ start-allergies:
   
 get-allergies:
   UserSays:
-  - I'm allergic to milk
   - I'm allergic to gluten
-  - lactuse 
-  - nuts
+  - I'm allergic to nuts
+  - I'm allergic to peanuts
+  - I'm allergic to lactose
+
   Annotaitions:
-  - milk: allergan
+  - peanuts: allergan
   - gluten: allergan
-  - lactuse: allergan
+  - lactose: allergan
   - nuts: allergan
   
   
