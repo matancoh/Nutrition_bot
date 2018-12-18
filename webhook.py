@@ -18,6 +18,12 @@ SODIUM_EXP = re.compile("how [many|much]+ sodium ?is in [a|an]+ (.*)")
 
 
 #####################################################
+
+############### CONSTS #####################
+
+ALLERGIES = {}
+
+#####################################################
 logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
 app = Flask(__name__)
 assist = Assistant(app, route='/')
@@ -132,6 +138,7 @@ def ask_for_color(gender):
 @assist.action('start-allergies')
 def start_allergies():
     context_manager.add('allergies')
+    ALLERGIES = {}
     speech = "sure, to what food you are allergic to?"
     
     return ask(speech)
@@ -141,6 +148,7 @@ def start_allergies():
 def get_allergies(allergan):
     print(allergan)
     context_manager.set('allergies','allergy',allergan)
+    ALLERGIES['allergy'] = allergan
     speech = "Ok, and what food you would like to check?"
     return ask(speech)
 
@@ -148,11 +156,10 @@ def get_allergies(allergan):
 @assist.action('get-food')
 def get_food(product):
     #TODO: need to check here what is happening if they have two allergies
-    product = engine.findProductByName(product)
-    allergans_in_product = engine.checkAllergies(product)
+    product = EngineClient.findProductByName(product)
+    allergans_in_product = EngineClient.checkAllergies(product)
+    allergies  = ALLERGIES
     pdb.set_trace()
-    allergies = context_manager.get('allergies')['allergy']
-    
     speech = "Let me check %s for you" % product
     return tell(speech)
 
