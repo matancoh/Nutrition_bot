@@ -289,8 +289,7 @@ get-allergies:
   - gluten: allergan
   - lactose: allergan
   - nuts: allergan
-  
-  
+
 get-food:
   userSays:
   - cake
