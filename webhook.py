@@ -159,7 +159,7 @@ def get_food(product):
     product = EngineClient.findProductByName(product)
     allergans_in_product = EngineClient.checkAllergies(product)
     allergy  = ALLERGIES['allergy']
-    if allergy in allergans_in_product:
+    if allergy in allergans_in_product.lower():
         speech = "This food is not safe for you"
     else:
         speech = "I couldn't find any allergans in this food related to your allergies"

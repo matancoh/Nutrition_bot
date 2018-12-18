@@ -18,8 +18,9 @@
   - female: ['woman', 'girl', 'gal']
  allergan:
   - peanutes: ['peanutes']
-  - milk: ['milk', 'lactuse']
+  - lactuse: ['milk', 'lactuse']
   - gluten: ['gluten']
+  - nuts: ['nut', 'walnut', 'filbert','almonds','Pecan', 'coconut','pistachios','pecans']
  product:
   - pizza: ['pizza']
   - toast: ['toast']

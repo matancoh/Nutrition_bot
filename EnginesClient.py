@@ -8,11 +8,11 @@ class HealthStatus:
     HighFatSaturated = 'High Fat Saturated'
 
 class Allergy:
-    Celiac = {'name': 'Celiac','ingredients': ['wheat', 'barley', 'rye', 'oatmeal', 'oat', 'flour']}
-    Lactose = {'name': 'Lactose', 'ingredients': ['milk', 'LACTOSE', 'MILKFAT']}
-    Peanuts = {'name': 'Peanuts', 'ingredients': ['peanut', 'PEANUTS']}
-    Nuts = {'name': 'Nuts', 'ingredients': ['nut', 'walnut', 'filbert','ALMONDS','Pecan', 'coconut','pistachios','PECANS']}
-    Soya = {'name': 'Soya', 'ingredients': ['soya', 'soy']}
+    Celiac = {'name': 'celiac','ingredients': ['wheat', 'barley', 'rye', 'oatmeal', 'oat', 'flour']}
+    Lactose = {'name': 'lactose', 'ingredients': ['milk', 'LACTOSE', 'MILKFAT']}
+    Peanuts = {'name': 'peanuts', 'ingredients': ['peanut', 'PEANUTS']}
+    Nuts = {'name': 'nuts', 'ingredients': ['nut', 'walnut', 'filbert','ALMONDS','Pecan', 'coconut','pistachios','PECANS']}
+    Soya = {'name': 'soy', 'ingredients': ['soya', 'soy']}
 
 class FoodEngineClient(object):
     def __init__(self):
