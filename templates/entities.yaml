@@ -16,7 +16,7 @@
  gender:
   - male: ['male','man', 'boy', 'guy', 'dude']
   - female: ['woman', 'girl', 'gal']
- allergans:
+ allergan:
   - peanutes: ['peanutes']
   - milk: ['milk', 'lactuse']
   - gluten: ['gluten']
