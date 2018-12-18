@@ -158,9 +158,11 @@ def get_food(product):
     #TODO: need to check here what is happening if they have two allergies
     product = EngineClient.findProductByName(product)
     allergans_in_product = EngineClient.checkAllergies(product)
-    allergies  = ALLERGIES
-    pdb.set_trace()
-    speech = "Let me check %s for you" % product
+    allergy  = ALLERGIES['allergy']
+    if allergy in allergans_in_product:
+        speech = "This food is not safe for you"
+    else:
+        speech = "I couldn't find any allergans in this food related to your allergies"
     return tell(speech)
 
 if __name__ == '__main__':
