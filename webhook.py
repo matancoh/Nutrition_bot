@@ -6,7 +6,7 @@ from EnginesClient import FoodEngineClient
 from flask_assistant import Assistant, ask, tell, request, event, build_item
 from flask_assistant import context_manager
 import logging
-
+import pdb
 
 ############### REGULAR EXPRESSIONS#####################
 CALORIES_EXP = re.compile("how [many|much]+ calories ?are in [a|an]+ (.*)")
@@ -147,8 +147,14 @@ def get_allergies(allergan):
 @assist.context('allergies')
 @assist.action('get-food')
 def get_food(product):
+    #TODO: need to check here what is happening if they have two allergies
+    product = engine.findProductByName(product)
+    allergans_in_product = engine.checkAllergies(product)
+    pdb.set_trace()
+    allergies = context_manager.get('allergies')['allergy']
+    
     speech = "Let me check %s for you" % product
-    tell(speech)
+    return tell(speech)
 
 if __name__ == '__main__':
     app.run(debug=True)
