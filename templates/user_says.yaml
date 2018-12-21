@@ -283,7 +283,6 @@ get-allergies:
   - I'm allergic to nuts
   - I'm allergic to peanuts
   - I'm allergic to lactose
-
   Annotaitions:
   - peanuts: allergan
   - gluten: allergan
