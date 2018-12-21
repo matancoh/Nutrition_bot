@@ -155,9 +155,9 @@ def start_allergies():
 def get_allergies(allergan):
     if not allergan:
         speech = "I couldn't understand that, please repeat"
-        ALLERGIES = {}
-        return tell(speech)
+        return ask(speech)
 
+    ALLERGIES = {}
     context_manager.set('allergies','allergy',allergan)
     ALLERGIES['allergy'] = allergan
     speech = "Ok, and what food you would like to check?"
