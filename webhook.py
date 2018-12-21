@@ -153,7 +153,11 @@ def start_allergies():
 @assist.context('allergies')
 @assist.action('get-allergies')
 def get_allergies(allergan):
-    print(allergan)
+    if not allergan:
+        speech = "I couldn't understand that, please repeat"
+        ALLERGIES = {}
+        return tell(speech)
+
     context_manager.set('allergies','allergy',allergan)
     ALLERGIES['allergy'] = allergan
     speech = "Ok, and what food you would like to check?"
@@ -166,10 +170,12 @@ def get_food(product):
     product = EngineClient.findProductByName(product)
     allergans_in_product = EngineClient.checkAllergies(product)
     allergy  = ALLERGIES['allergy']
+   
     if allergy in allergans_in_product:
         speech = "This food is not safe for you"
     else:
         speech = "I couldn't find any allergans in this food related to your allergies"
+    ALLERGIES = {}
     return tell(speech)
 
 if __name__ == '__main__':
