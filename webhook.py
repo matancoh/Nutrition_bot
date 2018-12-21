@@ -28,11 +28,11 @@ logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
 app = Flask(__name__)
 assist = Assistant(app, route='/')
 
-att_speech =   {'calories': "{product} has {result} of calories in it"
-  'sugar': "{product} has {result} grams of sugar in it"
-  'carbohydrates': "{product} has {result} grams of carbohydrates in it"
-  'protein': "{product} has {result} grams of proteins in it"
-  'fat': "{product} has {result} grams of fat"
+att_speech =  {'calories': "{product} has {result} of calories in it",
+  'sugar': "{product} has {result} grams of sugar in it",
+  'carbohydrates': "{product} has {result} grams of carbohydrates in it",
+  'protein': "{product} has {result} grams of proteins in it",
+  'fat': "{product} has {result} grams of fat",
   'sodium': "{product} has {result} grams of sodium"}
 
 class Speech:
@@ -132,8 +132,8 @@ def get_sodium():
 
 def getProductAttrByParam(name ,productAttr):
     res =  EngineClient.findProductByName(name)
-    speech = Speech.GET_PARAM.format(productAttr, name, res.get(productAttr))
-    return speech
+    #speech = Speech.GET_PARAM.format(productAttr, name, res.get(productAttr))
+    return res
 ############### PRODUCT ATTRIBUTE ###################
 
 
