@@ -28,6 +28,13 @@ logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
 app = Flask(__name__)
 assist = Assistant(app, route='/')
 
+att_speech =   {'calories': "{product} has {result} of calories in it"
+  'sugar': "{product} has {result} grams of sugar in it"
+  'carbohydrates': "{product} has {result} grams of carbohydrates in it"
+  'protein': "{product} has {result} grams of proteins in it"
+  'fat': "{product} has {result} grams of fat"
+  'sodium': "{product} has {result} grams of sodium"}
+
 class Speech:
     GET_PARAM = "The {} for {} are {}"
     ASK_PARAM = "for which food you want get {}?"
@@ -71,10 +78,12 @@ EngineClient = FoodEngineClient()
 def get_calories(product, attr):
     #query = CALORIES_EXP.findall(assist.request['result']['resolvedQuery'])
     print(product, attr)
-    #speech = getProductAttrByParam(query[0], 'calories')
+    if not product or not attr:
+        speech = "couldn't understand please try with another product"
+        return tell(speech)
+    result = getProductAttrByParam(product, attr)
     #speech = getProductAttrByParam(product, 'calories')
-    speech = "%s, %s" % (product, attr)
-    
+    speech = att_speech[attr].format(product=product, result=result)
     return ask(speech)
 
 
