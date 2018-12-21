@@ -35,7 +35,7 @@ class Speech:
 
 EngineClient = FoodEngineClient()
 ############### ASK ###################
-@assist.action('ask_calories')
+#@assist.action('ask_calories')
 # def ask_calories():
     # speech = Speech.ASK_PARAM.format('calories')
     # return ask(speech)
@@ -70,7 +70,7 @@ EngineClient = FoodEngineClient()
 @assist.action('get_calories')
 def get_calories(product):
     #query = CALORIES_EXP.findall(assist.request['result']['resolvedQuery'])
-    print(product])
+    print(product)
     #speech = getProductAttrByParam(query[0], 'calories')
     speech = getProductAttrByParam(product, 'calories')
     

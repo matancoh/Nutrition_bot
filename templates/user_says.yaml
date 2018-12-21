@@ -13,34 +13,6 @@
 #  Events:
 #    - event1              # adds a triggerable event named 'event1' to the intent
 
-
-give-gender:
-  UserSays:
-  - male
-  - Im a female
-  - girl
-  Annotations:
-  - male: gender
-  - female: gender
-  - girl: gender
-
-greeting:
-  UserSays:
-  - hi
-  - hello
-
-give-color:
-  UserSays:
-  - my color is blue
-  - Its blue
-  - I like red
-  - My favorite color is red
-  - blue
-  Annotations:
-  - blue: sys.color
-  - red: sys.color
-
-
 get_calories:
   UserSays:
   - how many calories are in pizza?
@@ -70,30 +42,33 @@ get_calories:
   - how much calories are in grilled chicken?
   - how much calories are in belgian waffle?
   - how much calories are in omelette?
-  Annotaitions:
-  - pizza: product
-  - toast: product
-  - cornflakes: product
-  - hamburger: product
-  - grilled chicken: product
-  - belgian waffle: product
-  - omelette: product
-  - chicken soup: product
-  - fruit salad: product
-  - cheerios: product
-  - fried wings: product
-  - creme brulee: product
-  - burrito: product
-  - chocolate cake: product
-  - taco: product
-  - bigmac: product
-  - cheetos: product
-  - whipped cream: product
-  - chicken sandwich: product
-  - bacon: product
-
-get_fat:
-  UserSays:
+  - how many carbohydrates are in a pizza?
+  - how many carbohydrates are in a toast?
+  - how many carbohydrates are in a cornflakes?
+  - how many carbohydrates are in an hamburger?
+  - how many carbohydrates are in a grilled chicken?
+  - how many carbohydrates are in a belgian waffle?
+  - how many carbohydrates in an omelette?
+  - how many carbohydrates in a chicken soup?
+  - how many carbohydrates in a fruit salad?
+  - how many carbohydrates in a cheerios?
+  - how many carbohydrates in a fried wings?
+  - how many carbohydrates in a creme brulee?
+  - how many carbohydrates in a burrito?
+  - how many carbohydrates in a chocolate cake?
+  - how many carbs are in a taco?
+  - how many carbs are in a bigmac?
+  - how many carbs are in cheetos?
+  - how much carbs are in whipped cream?
+  - how much carbs are in a chicken sandwich?
+  - how much carbs are in a bacon?
+  - how much carbs are in a pizza?
+  - how much carbohydrates is in a toast?
+  - how much carbohydrates is in a cornflakes?
+  - how much carbohydrates is in an hamburger?
+  - how much carbohydrates is in grilled chicken?
+  - how much carbohydrates is in a belgian waffle?
+  - how much carbohydrates is in anomelette?
   - how many fat in a pizza?
   - how many fat in a toast?
   - how many fat in a cornflakes?
@@ -120,31 +95,7 @@ get_fat:
   - how much fat in an hamburger?
   - how much fat in grilled chicken?
   - how much fat in a belgian waffle?
-  - how much fat in anomelette?
-  Annotaitions:
-  - pizza: product
-  - toast: product
-  - cornflakes: product
-  - hamburger: product
-  - grilled chicken: product
-  - belgian waffle: product
-  - omelette: product
-  - chicken soup: product
-  - fruit salad: product
-  - cheerios: product
-  - fried wings: product
-  - creme brulee: product
-  - burrito: product
-  - chocolate cake: product
-  - taco: product
-  - bigmac: product
-  - cheetos: product
-  - whipped cream: product
-  - chicken sandwich: product
-  - bacon: product
-
-get_sugar:
-  UserSays:
+  - how much fat in an omelette?
   - how many sugar in a pizza?
   - how many sugar in a toast?
   - how many sugar in a cornflakes?
@@ -172,9 +123,6 @@ get_sugar:
   - how much sugar is in grilled chicken?
   - how much sugar is in a belgian waffle?
   - how much sugar is in anomelette?
-  
-get_protein:
-  UserSays:
   - how many protein in a pizza?
   - how many protein in a toast?
   - how many protein in a cornflakes?
@@ -202,39 +150,6 @@ get_protein:
   - how much proteins are in grilled chicken?
   - how much proteins are in a belgian waffle?
   - how much protein is in anomelette?
-
-get_carbohydrate:
-  UserSays:
-  - how many carbohydrates are in a pizza?
-  - how many carbohydrates are in a toast?
-  - how many carbohydrates are in a cornflakes?
-  - how many carbohydrates are in an hamburger?
-  - how many carbohydrates are in a grilled chicken?
-  - how many carbohydrates are in a belgian waffle?
-  - how many carbohydrates in an omelette?
-  - how many carbohydrates in a chicken soup?
-  - how many carbohydrates in a fruit salad?
-  - how many carbohydrates in a cheerios?
-  - how many carbohydrates in a fried wings?
-  - how many carbohydrates in a creme brulee?
-  - how many carbohydrates in a burrito?
-  - how many carbohydrates in a chocolate cake?
-  - how many cars are in a taco?
-  - how many cars are in a bigmac?
-  - how many carbs are in cheetos?
-  - how much carbs are in whipped cream?
-  - how much carbs are in a chicken sandwich?
-  - how much carbs are in a bacon?
-  - how much carbs are in a pizza?
-  - how much carbohydrates is in a toast?
-  - how much carbohydrates is in a cornflakes?
-  - how much carbohydrates is in an hamburger?
-  - how much carbohydrates is in grilled chicken?
-  - how much carbohydrates is in a belgian waffle?
-  - how much carbohydrates is in anomelette?
-  
-get_sodium:
-  UserSays:
   - how much sodium in a pizza?
   - how much sodium in a toast?
   - how much sodium in a cornflakes?
@@ -262,6 +177,35 @@ get_sodium:
   - how much sodium is in grilled chicken?
   - how much sodium is in a belgian waffle?
   - how much sodium is in anomelette?
+  Annotaitions:
+  - pizza: product
+  - toast: product
+  - cornflakes: product
+  - hamburger: product
+  - grilled chicken: product
+  - belgian waffle: product
+  - omelette: product
+  - chicken soup: product
+  - fruit salad: product
+  - cheerios: product
+  - fried wings: product
+  - creme brulee: product
+  - burrito: product
+  - chocolate cake: product
+  - taco: product
+  - bigmac: product
+  - cheetos: product
+  - whipped cream: product
+  - chicken sandwich: product
+  - bacon: product
+  - calories: attr
+  - fat: attr
+  - carbohydrates: attr
+  - carbs: attr
+  - sodium: attr 
+  - protein: attr
+  - proteins: attr
+
 
 get_gluten:
   UserSays:

@@ -42,3 +42,10 @@
   - whipcream: ['whipped cream']
   - chicken sandwich: ['chicken sandwich']
   - bacon: ['bacon']
+ attr:
+  - calories: ['calories']
+  - sugar: ['sugar', 'sugars']
+  - carbohydrates: ['carbohydrates', 'carbs']
+  - protein: ['protein', 'proteins']
+  - fat: ['fat', 'fats']
+  - sodium: ['sodiums', 'salts']
