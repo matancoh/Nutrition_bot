@@ -157,7 +157,6 @@ def get_allergies(allergan):
         speech = "I couldn't understand that, please repeat"
         return ask(speech)
 
-    ALLERGIES = {}
     context_manager.set('allergies','allergy',allergan)
     ALLERGIES['allergy'] = allergan
     speech = "Ok, and what food you would like to check?"
