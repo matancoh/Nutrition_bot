@@ -133,7 +133,7 @@ def get_sodium():
 def getProductAttrByParam(name ,productAttr):
     res =  EngineClient.findProductByName(name)
     #speech = Speech.GET_PARAM.format(productAttr, name, res.get(productAttr))
-    return res.get(productAttr)
+    return round(res.get(productAttr))
 ############### PRODUCT ATTRIBUTE ###################
 
 
