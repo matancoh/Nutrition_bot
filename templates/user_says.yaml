@@ -40,9 +40,6 @@ give-color:
   - blue: sys.color
   - red: sys.color
 
-ask_calories:
-  UserSays:
-  - check calories
 
 get_calories:
   UserSays:

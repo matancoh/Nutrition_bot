@@ -34,23 +34,48 @@ class Speech:
 
 
 EngineClient = FoodEngineClient()
-############### PRODUCT ATTRIBUTE ###################
+############### ASK ###################
 @assist.action('ask_calories')
-def ask_calories():
-    speech = Speech.ASK_PARAM.format('calories')
-    return ask(speech)
+# def ask_calories():
+    # speech = Speech.ASK_PARAM.format('calories')
+    # return ask(speech)
+    
+# @assist.action('ask_fat')
+# def ask_fat():
+    # speech = Speech.ASK_PARAM.format('fat')
+    # return ask(speech)
+
+# @assist.action('ask_sugar')
+# def ask_sugar():
+    # speech = Speech.ASK_PARAM.format('sugar')
+    # return ask(speech)
+
+# @assist.action('ask_protein')
+# def ask_protein():
+    # speech = Speech.ASK_PARAM.format('protein')
+    # return ask(speech)
+
+# @assist.action('ask_carbohydrate')
+# def ask_carbohydrate():
+    # speech = Speech.ASK_PARAM.format('carbohydrate')
+    # return ask(speech)
+
+# @assist.action('ask_sodium')
+# def ask_sodium():
+    # speech = Speech.ASK_PARAM.format('sodium')
+    # return ask(speech)
+###################################################################3
+
 
 @assist.action('get_calories')
 def get_calories(product):
-    query = CALORIES_EXP.findall(assist.request['result']['resolvedQuery'])
-    print(query[0])
-    speech = getProductAttrByParam(query[0], 'calories')
+    #query = CALORIES_EXP.findall(assist.request['result']['resolvedQuery'])
+    print(product])
+    #speech = getProductAttrByParam(query[0], 'calories')
+    speech = getProductAttrByParam(product, 'calories')
+    
     return ask(speech)
 
-@assist.action('ask_fat')
-def ask_fat():
-    speech = Speech.ASK_PARAM.format('fat')
-    return ask(speech)
 
 @assist.action('get_fat')
 def get_fat():
@@ -59,10 +84,7 @@ def get_fat():
     speech = getProductAttrByParam(name, 'fat')
     return ask(speech)
 
-@assist.action('ask_sugar')
-def ask_sugar():
-    speech = Speech.ASK_PARAM.format('sugar')
-    return ask(speech)
+
 
 @assist.action('get_sugar')
 def get_sugar():
@@ -71,10 +93,7 @@ def get_sugar():
     speech = getProductAttrByParam(query[0], 'sugar')
     return ask(speech)
 
-@assist.action('ask_protein')
-def ask_protein():
-    speech = Speech.ASK_PARAM.format('protein')
-    return ask(speech)
+
 
 @assist.action('get_protein')
 def get_protein():
@@ -83,10 +102,6 @@ def get_protein():
     speech = getProductAttrByParam(query[0], 'protein')
     return ask(speech)
 
-@assist.action('ask_carbohydrate')
-def ask_carbohydrate():
-    speech = Speech.ASK_PARAM.format('carbohydrate')
-    return ask(speech)
 
 @assist.action('get_carbohydrate')
 def get_carbohydrate():
@@ -95,10 +110,7 @@ def get_carbohydrate():
     speech = getProductAttrByParam(query[0], 'carbohydrate')
     return ask(speech)
 
-@assist.action('ask_sodium')
-def ask_sodium():
-    speech = Speech.ASK_PARAM.format('sodium')
-    return ask(speech)
+
 
 @assist.action('get_sodium')
 def get_sodium():
@@ -117,22 +129,8 @@ def getProductAttrByParam(name ,productAttr):
 
 
 
-####################### AMIT FIRST TEST #################
+####################### ALLERGIES #################
 
-@assist.action('greeting')
-def greet_and_start():
-    speech = "Hey! Are you male or female?"
-    return ask(speech)
-
-@assist.action("give-gender")
-def ask_for_color(gender):
-    if gender == 'male':
-        gender_msg = 'Sup bro!'
-    else:
-        gender_msg = 'Haay gurl!'
-
-    speech = gender_msg + ' What is your favorite color?'
-    return ask(speech)
 
 @assist.action('start-allergies')
 def start_allergies():
