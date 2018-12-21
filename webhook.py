@@ -68,11 +68,12 @@ EngineClient = FoodEngineClient()
 
 
 @assist.action('get_calories')
-def get_calories(product):
+def get_calories(product, attr):
     #query = CALORIES_EXP.findall(assist.request['result']['resolvedQuery'])
-    print(product)
+    print(product, attr)
     #speech = getProductAttrByParam(query[0], 'calories')
-    speech = getProductAttrByParam(product, 'calories')
+    #speech = getProductAttrByParam(product, 'calories')
+    speech = "%s, %s" % (product, attr)
     
     return ask(speech)
 
