@@ -80,7 +80,7 @@ def get_calories(product, attr):
     print(product, attr)
     if not product or not attr:
         speech = "couldn't understand please try with another product"
-        return tell(speech)
+        return ask(speech)
     result = getProductAttrByParam(product, attr)
     #speech = getProductAttrByParam(product, 'calories')
     speech = att_speech[attr].format(product=product, result=result)
