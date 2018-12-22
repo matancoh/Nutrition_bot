@@ -4,7 +4,6 @@ import re
 from flask import Flask
 from EnginesClient import FoodEngineClient
 from flask_assistant import Assistant, ask, tell, request, event, build_item
-from flask_assistant import context_manager
 import logging
 import pdb
 
@@ -101,25 +100,24 @@ def getProductAttrByParam(name ,productAttr):
 
 @assist.action('start-allergies')
 def start_allergies():
-    context_manager.add('allergies')
     ALLERGIES = {}
     speech = "sure, to what food you are allergic to?"
     
     return ask(speech)
 
-@assist.context('allergies')
+
 @assist.action('get-allergies')
 def get_allergies(allergan):
     if not allergan:
         speech = "I couldn't understand that, please repeat"
         return ask(speech)
 
-    context_manager.set('allergies','allergy',allergan)
+    
     ALLERGIES['allergy'] = allergan
     speech = "Ok, and what food you would like to check?"
     return ask(speech)
 
-@assist.context('allergies')
+
 @assist.action('get-food')
 def get_food(product):
     #TODO: need to check here what is happening if they have two allergies
