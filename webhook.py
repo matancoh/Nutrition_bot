@@ -87,49 +87,6 @@ def get_calories(product, attr):
     return ask(speech)
 
 
-@assist.action('get_fat')
-def get_fat():
-    query = FAT_EXP.findall(assist.request['result']['resolvedQuery'])
-    print(query[0])
-    speech = getProductAttrByParam(name, 'fat')
-    return ask(speech)
-
-
-
-@assist.action('get_sugar')
-def get_sugar():
-    query = SUGAR_EXP.findall(assist.request['result']['resolvedQuery'])
-    print(query[0])
-    speech = getProductAttrByParam(query[0], 'sugar')
-    return ask(speech)
-
-
-
-@assist.action('get_protein')
-def get_protein():
-    query = PROTEIN_EXP.findall(assist.request['result']['resolvedQuery'])
-    print(query[0])
-    speech = getProductAttrByParam(query[0], 'protein')
-    return ask(speech)
-
-
-@assist.action('get_carbohydrate')
-def get_carbohydrate():
-    query = CARBS_EXP.findall(assist.request['result']['resolvedQuery'])
-    print(query[0])
-    speech = getProductAttrByParam(query[0], 'carbohydrate')
-    return ask(speech)
-
-
-
-@assist.action('get_sodium')
-def get_sodium():
-    query = SODIUM_EXP.findall(assist.request['result']['resolvedQuery'])
-    print(query[0])
-    speech = getProductAttrByParam(query[0], 'sodium')
-    return ask(speech)
-
-
 def getProductAttrByParam(name ,productAttr):
     res =  EngineClient.findProductByName(name)
     #speech = Speech.GET_PARAM.format(productAttr, name, res.get(productAttr))

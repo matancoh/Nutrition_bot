@@ -207,11 +207,7 @@ get_calories:
   - proteins: attr
 
 
-get_gluten:
-  UserSays:
-  - does pizza has gluten?
-  - does a toast has gluten?
-  - do conrflakes have gluten?
+
 
 start-allergies:
   UserSays:
