@@ -219,7 +219,14 @@ class FoodEngine(object):
 
 
     def get(self, productId):
-        return self.products[productId]
+        product = None
+        try:
+            product = self.products[productId]
+        except:
+            print('cannot find product:{}'.format(productId))
+
+        return product
+
 
     def _sizeOfDic(self):
         print(f'THE SIZE OF THE DICTIONARY IS: {len(self.inverted_index)}')
