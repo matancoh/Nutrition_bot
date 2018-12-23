@@ -119,7 +119,6 @@ def get_allergies(allergan):
 @assist.action('get-food')
 def get_food(product):
     context = context_manager.get('await_for_food')
-    pdb.set_trace()
     product = context.parameters['product']
     allergy = context.parameters['allergan']
     #TODO: need to check here what is happening if they have two allergies
@@ -129,7 +128,7 @@ def get_food(product):
         speech = "This food is not safe for you"
     else:
         speech = "I couldn't find any allergans in this food related to your allergies"
-    return tell(speech)
+    return ask(speech)
 
 if __name__ == '__main__':
     app.run(debug=True)
