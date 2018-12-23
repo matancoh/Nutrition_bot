@@ -128,7 +128,7 @@ def get_food(product):
         speech = "This food is not safe for you"
     else:
         speech = "I couldn't find any allergans in this food related to your allergies"
-    return tell(speech)
+    return ask(speech)
 
 if __name__ == '__main__':
     app.run(debug=True)
