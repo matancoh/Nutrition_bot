@@ -211,6 +211,7 @@ start-allergies:
   UserSays:
     - I want to check food for allergies
     - check food for allergies
+    - check food allergies
   
 get-allergies:
   UserSays:
@@ -218,11 +219,13 @@ get-allergies:
     - I'm allergic to nuts
     - I'm allergic to peanuts
     - I'm allergic to lactose
+    - I have celiac
   Annotations:
     - peanuts: allergan
     - gluten: allergan
     - lactose: allergan
     - nuts: allergan
+    - celiac: allergan
 
 get-food:
   userSays:

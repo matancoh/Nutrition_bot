@@ -23,7 +23,7 @@
  allergan:
   - peanutes: ['peanutes']
   - lactose: ['milk', 'lactose']
-  - gluten: ['gluten']
+  - celiac: ['gluten', 'celiac']
   - nuts: ['nut', 'walnut', 'filbert','almonds','Pecan', 'coconut','pistachios','pecans']
  product:
   - pizza: ['pizza']
@@ -77,7 +77,6 @@
   - burrito: ['burrito']
   - limburger: ['limburger']
   - spread: ['spread']
-  - cakes: ['cakes']
   - peanuts: ['peanuts']
   - boysenberries: ['boysenberries']
   - gelatin: ['gelatin']
@@ -676,6 +675,7 @@
   - barazek: ['barazek']
   - chestnut: ['chestnut']
   - cookie: ['cookie']
+  - cake: ['cake']
   - popcorn: ['popcorn']
   - tortellini: ['tortellini']
   - dressing: ['dressing']
