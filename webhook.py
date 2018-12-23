@@ -28,7 +28,7 @@ logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
 app = Flask(__name__)
 assist = Assistant(app, route='/')
 
-att_speech =  {'calories': "{product} has {result} of calories in it",
+att_speech =  {'calories': "{product} has {result} calories",
   'sugar': "{product} has {result} grams of sugar in it",
   'carbohydrates': "{product} has {result} grams of carbohydrates in it",
   'protein': "{product} has {result} grams of proteins in it",
