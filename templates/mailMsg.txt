@@ -1,0 +1,28 @@
+
+Name: <fullname>
+Gender: <gender>
+Age: <age>
+Weight: <weight> Kg
+Height: <height> Cm
+Food Preference: <foodpreference>
+Exercise Frequency: <Exercisefrequency>
+
+
+    Your Menu:
+
+        Breakfast:
+<Breakfast>
+
+        In-Between:
+<BetweenFirst>
+
+        Lunch:
+<Lunch>
+
+        In-Between:
+<BetweenSecond>
+
+        Dinner:
+<Dinner>
+
+
