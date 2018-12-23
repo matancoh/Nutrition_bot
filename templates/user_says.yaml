@@ -15,168 +15,168 @@
 
 get_calories:
   UserSays:
-  - how many calories are in pizza?
-  - how many calories are in toast?
-  - how many calories are in cornflakes?
-  - how many calories are in hamburger?
-  - how many calories are in grilled chicken?
-  - how many calories are in belgian waffle?
-  - how many calories are in omelette?
-  - how many calories are in chicken soup?
-  - how many calories are in fruit salad?
-  - how many calories are in cheerios?
-  - how many calories are in fried wings?
-  - how many calories are in creme brulee?
-  - how many calories are in burrito?
-  - how many calories are in chocolate cake?
-  - how many calories are in taco?
-  - how many calories are in bigmac?
-  - how many calories are in cheetos?
-  - how many calories are in whipped cream?
-  - how many calories are in chicken sandwich?
-  - how many calories are in bacon?
-  - how much calories are in pizza?
-  - how much calories are in toast?
-  - how much calories are in cornflakes?
-  - how much calories are in hamburger?
-  - how much calories are in grilled chicken?
-  - how much calories are in belgian waffle?
-  - how much calories are in omelette?
-  - how many carbohydrates are in a pizza?
-  - how many carbohydrates are in a toast?
-  - how many carbohydrates are in a cornflakes?
-  - how many carbohydrates are in an hamburger?
-  - how many carbohydrates are in a grilled chicken?
-  - how many carbohydrates are in a belgian waffle?
-  - how many carbohydrates in an omelette?
-  - how many carbohydrates in a chicken soup?
-  - how many carbohydrates in a fruit salad?
-  - how many carbohydrates in a cheerios?
-  - how many carbohydrates in a fried wings?
-  - how many carbohydrates in a creme brulee?
-  - how many carbohydrates in a burrito?
-  - how many carbohydrates in a chocolate cake?
-  - how many carbs are in a taco?
-  - how many carbs are in a bigmac?
-  - how many carbs are in cheetos?
-  - how much carbs are in whipped cream?
-  - how much carbs are in a chicken sandwich?
-  - how much carbs are in a bacon?
-  - how much carbs are in a pizza?
-  - how much carbohydrates is in a toast?
-  - how much carbohydrates is in a cornflakes?
-  - how much carbohydrates is in an hamburger?
-  - how much carbohydrates is in grilled chicken?
-  - how much carbohydrates is in a belgian waffle?
-  - how much carbohydrates is in anomelette?
-  - how many fat in a pizza?
-  - how many fat in a toast?
-  - how many fat in a cornflakes?
-  - how many fat in an hamburger?
-  - how many fat in a grilled chicken?
-  - how many fat in a belgian waffle?
-  - how many fat in an omelette?
-  - how many fat in a chicken soup?
-  - how many fat in a fruit salad?
-  - how many fat in a cheerios?
-  - how many fat in a fried wings?
-  - how many fat in a creme brulee?
-  - how many fat in a burrito?
-  - how many fat in a chocolate cake?
-  - how many fat in a taco?
-  - how many fat in a bigmac?
-  - how many fat in cheetos?
-  - how many fat in whipped cream?
-  - how many fat in a chicken sandwich?
-  - how many fat in a bacon?
-  - how much fat in a pizza?
-  - how much fat in a toast?
-  - how much fat in a cornflakes?
-  - how much fat in an hamburger?
-  - how much fat in grilled chicken?
-  - how much fat in a belgian waffle?
-  - how much fat in an omelette?
-  - how many sugar in a pizza?
-  - how many sugar in a toast?
-  - how many sugar in a cornflakes?
-  - how many sugar in an hamburger?
-  - how many sugar in a grilled chicken?
-  - how many sugar in a belgian waffle?
-  - how many sugar in an omelette?
-  - how many sugar in a chicken soup?
-  - how many sugar in a fruit salad?
-  - how many sugar in a cheerios?
-  - how many sugar in a fried wings?
-  - how many sugar in a creme brulee?
-  - how many sugar in a burrito?
-  - how many sugar in a chocolate cake?
-  - how many sugar in a taco?
-  - how many sugar in a bigmac?
-  - how many sugar in cheetos?
-  - how much sugar isin whipped cream?
-  - how much sugar is in a chicken sandwich?
-  - how much sugar is in a bacon?
-  - how much sugar is in a pizza?
-  - how much sugar is in a toast?
-  - how much sugar is in a cornflakes?
-  - how much sugar is in an hamburger?
-  - how much sugar is in grilled chicken?
-  - how much sugar is in a belgian waffle?
-  - how much sugar is in anomelette?
-  - how many protein in a pizza?
-  - how many protein in a toast?
-  - how many protein in a cornflakes?
-  - how many protein in an hamburger?
-  - how many proteins in a grilled chicken?
-  - how many protein in a belgian waffle?
-  - how many proteins in an omelette?
-  - how many protein in a chicken soup?
-  - how many protein in a fruit salad?
-  - how many proteins in a cheerios?
-  - how many protein in a fried wings?
-  - how many protein in a creme brulee?
-  - how many proteins in a burrito?
-  - how many protein in a chocolate cake?
-  - how many protein in a taco?
-  - how many protein in a bigmac?
-  - how many proteins in cheetos?
-  - how much protein isin whipped cream?
-  - how much protein is in a chicken sandwich?
-  - how much protein is in a bacon?
-  - how much protein is in a pizza?
-  - how much protein is in a toast?
-  - how much proteins are in a cornflakes?
-  - how much proteins are in an hamburger?
-  - how much proteins are in grilled chicken?
-  - how much proteins are in a belgian waffle?
-  - how much protein is in anomelette?
-  - how much sodium in a pizza?
-  - how much sodium in a toast?
-  - how much sodium in a cornflakes?
-  - how much sodium in an hamburger?
-  - how much sodium in a grilled chicken?
-  - how much sodium in a belgian waffle?
-  - how much sodium in an omelette?
-  - how much sodium in a chicken soup?
-  - how much sodium in a fruit salad?
-  - how much sodium in a cheerios?
-  - how much sodium in a fried wings?
-  - how much sodium in a creme brulee?
-  - how much sodium in a burrito?
-  - how much sodium in a chocolate cake?
-  - how much sodium in a taco?
-  - how much sodium in a bigmac?
-  - how much sodium in cheetos?
-  - how much sodium isin whipped cream?
-  - how much sodium is in a chicken sandwich?
-  - how much sodium is in a bacon?
-  - how much sodium is in a pizza?
-  - how much sodium is in a toast?
-  - how much sodium is in a cornflakes?
-  - how much sodium is in an hamburger?
-  - how much sodium is in grilled chicken?
-  - how much sodium is in a belgian waffle?
-  - how much sodium is in anomelette?
+  - how many calories are in pizza
+  - how many calories are in toast
+  - how many calories are in cornflakes
+  - how many calories are in hamburger
+  - how many calories are in grilled chicken
+  - how many calories are in belgian waffle
+  - how many calories are in omelette
+  - how many calories are in chicken soup
+  - how many calories are in fruit salad
+  - how many calories are in cheerios
+  - how many calories are in fried wings
+  - how many calories are in creme brulee
+  - how many calories are in burrito
+  - how many calories are in chocolate cake
+  - how many calories are in taco
+  - how many calories are in bigmac
+  - how many calories are in cheetos
+  - how many calories are in whipped cream
+  - how many calories are in chicken sandwich
+  - how many calories are in bacon
+  - how much calories are in pizza
+  - how much calories are in toast
+  - how much calories are in cornflakes
+  - how much calories are in hamburger
+  - how much calories are in grilled chicken
+  - how much calories are in belgian waffle
+  - how much calories are in omelette
+  - how many carbohydrates are in a pizza
+  - how many carbohydrates are in a toast
+  - how many carbohydrates are in a cornflakes
+  - how many carbohydrates are in an hamburger
+  - how many carbohydrates are in a grilled chicken
+  - how many carbohydrates are in a belgian waffle
+  - how many carbohydrates in an omelette
+  - how many carbohydrates in a chicken soup
+  - how many carbohydrates in a fruit salad
+  - how many carbohydrates in a cheerios
+  - how many carbohydrates in a fried wings
+  - how many carbohydrates in a creme brulee
+  - how many carbohydrates in a burrito
+  - how many carbohydrates in a chocolate cake
+  - how many carbs are in a taco
+  - how many carbs are in a bigmac
+  - how many carbs are in cheetos
+  - how much carbs are in whipped cream
+  - how much carbs are in a chicken sandwich
+  - how much carbs are in a bacon
+  - how much carbs are in a pizza
+  - how much carbohydrates is in a toast
+  - how much carbohydrates is in a cornflakes
+  - how much carbohydrates is in an hamburger
+  - how much carbohydrates is in grilled chicken
+  - how much carbohydrates is in a belgian waffle
+  - how much carbohydrates is in anomelette
+  - how many fat in a pizza
+  - how many fat in a toast
+  - how many fat in a cornflakes
+  - how many fat in an hamburger
+  - how many fat in a grilled chicken
+  - how many fat in a belgian waffle
+  - how many fat in an omelette
+  - how many fat in a chicken soup
+  - how many fat in a fruit salad
+  - how many fat in a cheerios
+  - how many fat in a fried wings
+  - how many fat in a creme brulee
+  - how many fat in a burrito
+  - how many fat in a chocolate cake
+  - how many fat in a taco
+  - how many fat in a bigmac
+  - how many fat in cheetos
+  - how many fat in whipped cream
+  - how many fat in a chicken sandwich
+  - how many fat in a bacon
+  - how much fat in a pizza
+  - how much fat in a toast
+  - how much fat in a cornflakes
+  - how much fat in an hamburger
+  - how much fat in grilled chicken
+  - how much fat in a belgian waffle
+  - how much fat in an omelette
+  - how many sugar in a pizza
+  - how many sugar in a toast
+  - how many sugar in a cornflakes
+  - how many sugar in an hamburger
+  - how many sugar in a grilled chicken
+  - how many sugar in a belgian waffle
+  - how many sugar in an omelette
+  - how many sugar in a chicken soup
+  - how many sugar in a fruit salad
+  - how many sugar in a cheerios
+  - how many sugar in a fried wings
+  - how many sugar in a creme brulee
+  - how many sugar in a burrito
+  - how many sugar in a chocolate cake
+  - how many sugar in a taco
+  - how many sugar in a bigmac
+  - how many sugar in cheetos
+  - how much sugar isin whipped cream
+  - how much sugar is in a chicken sandwich
+  - how much sugar is in a bacon
+  - how much sugar is in a pizza
+  - how much sugar is in a toast
+  - how much sugar is in a cornflakes
+  - how much sugar is in an hamburger
+  - how much sugar is in grilled chicken
+  - how much sugar is in a belgian waffle
+  - how much sugar is in anomelette
+  - how many protein in a pizza
+  - how many protein in a toast
+  - how many protein in a cornflakes
+  - how many protein in an hamburger
+  - how many proteins in a grilled chicken
+  - how many protein in a belgian waffle
+  - how many proteins in an omelette
+  - how many protein in a chicken soup
+  - how many protein in a fruit salad
+  - how many proteins in a cheerios
+  - how many protein in a fried wings
+  - how many protein in a creme brulee
+  - how many proteins in a burrito
+  - how many protein in a chocolate cake
+  - how many protein in a taco
+  - how many protein in a bigmac
+  - how many proteins in cheetos
+  - how much protein isin whipped cream
+  - how much protein is in a chicken sandwich
+  - how much protein is in a bacon
+  - how much protein is in a pizza
+  - how much protein is in a toast
+  - how much proteins are in a cornflakes
+  - how much proteins are in an hamburger
+  - how much proteins are in grilled chicken
+  - how much proteins are in a belgian waffle
+  - how much protein is in anomelette
+  - how much sodium in a pizza
+  - how much sodium in a toast
+  - how much sodium in a cornflakes
+  - how much sodium in an hamburger
+  - how much sodium in a grilled chicken
+  - how much sodium in a belgian waffle
+  - how much sodium in an omelette
+  - how much sodium in a chicken soup
+  - how much sodium in a fruit salad
+  - how much sodium in a cheerios
+  - how much sodium in a fried wings
+  - how much sodium in a creme brulee
+  - how much sodium in a burrito
+  - how much sodium in a chocolate cake
+  - how much sodium in a taco
+  - how much sodium in a bigmac
+  - how much sodium in cheetos
+  - how much sodium isin whipped cream
+  - how much sodium is in a chicken sandwich
+  - how much sodium is in a bacon
+  - how much sodium is in a pizza
+  - how much sodium is in a toast
+  - how much sodium is in a cornflakes
+  - how much sodium is in an hamburger
+  - how much sodium is in grilled chicken
+  - how much sodium is in a belgian waffle
+  - how much sodium is in anomelette
   Annotaitions:
   - pizza: product
   - toast: product
@@ -205,9 +205,6 @@ get_calories:
   - sodium: attr 
   - protein: attr
   - proteins: attr
-
-
-
 
 start-allergies:
   UserSays:
