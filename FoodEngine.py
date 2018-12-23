@@ -15,12 +15,25 @@ class Paths:
     FOOD_DB = os.path.join('.', 'Food DB')
     ProductsCsv = os.path.join(FOOD_DB, 'Products.csv')
     NutrientCsv = os.path.join(FOOD_DB, 'Nutrient.csv')
+    ServingSizeCsv = os.path.join(FOOD_DB, 'Serving_Size.csv')
     Engine_path = os.path.join('.', 'Engine')
 
 TEXT = "text"
 SIZE_OF_RESULTS = 5
 SIZE_OF_SEARCH_RESULTS = 5000
 SIZE_OF_RESULTS_HEALTH = 100
+
+
+class Unit:
+    Milliliter = 'ml'
+    Gram = 'g'
+
+class Serving(object):
+    def __init__(self, amount, unit: Unit, servingTool, servingAmount):
+        self.amount = amount
+        self.unit = unit
+        self.servingTool = servingTool
+        self.servingAmount = servingAmount
 
 class Product(object):
     def __init__(self, _id):
@@ -35,6 +48,8 @@ class Product(object):
         self.sugars = None
         self.sodium = None
         self.fatSaturated = None
+        self.serving: Serving = None
+
 
     def get(self, attrName):
             return {
@@ -90,12 +105,22 @@ class FoodEngine(object):
         fNutrient = open(Paths.NutrientCsv, encoding='utf-8')
         nutrient_rows = csv.DictReader(fNutrient)
 
+        fServingSize = open(Paths.ServingSizeCsv, encoding='utf-8')
+        servingSize_rows = csv.DictReader(fServingSize)
+
         for product in products_rows:
             data[product['NDB_Number']] = self.addToProductsDict(product)  # Add to dict all new products
 
         for nutrientProduct in nutrient_rows:
             data[nutrientProduct['NDB_No']] = self.addNutrientToProduct(data[nutrientProduct['NDB_No']],
-                                                                        nutrientProduct)
+                                                                                nutrientProduct)
+        for product in servingSize_rows:
+            productId = product['\ufeffNDB_No']
+
+            if(data[productId] != None):
+                data[productId].serving = Serving(product['Serving_Size'], product['Serving_Size_UOM'],
+                                        product['Household_Serving_Size'], product['Household_Serving_Size_UOM'])
+
         for productId in data:
             product = data.get(productId)
             if (product.energy is not None) and (product.sugars is not None) and (product.sodium is not None) \
