@@ -119,7 +119,6 @@ def get_allergies(allergan):
 @assist.action('get-food')
 def get_food(product):
     context = context_manager.get('await_for_food')
-    pdb.set_trace()
     product = context.parameters['product']
     allergy = context.parameters['allergan']
     #TODO: need to check here what is happening if they have two allergies
