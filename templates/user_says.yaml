@@ -15,7 +15,7 @@
 
 get_calories:
   UserSays:
-    - how many calories are in pizza
+    - how many calories are in a pizza
     - how many calories are in toast
     - how many calories are in cornflakes
     - how many calories are in hamburger
@@ -29,19 +29,19 @@ get_calories:
     - how many calories are in creme brulee
     - how many calories are in burrito
     - how many calories are in chocolate cake
-    - how many calories are in taco
+    - how many calories are in a taco
     - how many calories are in bigmac
     - how many calories are in cheetos
     - how many calories are in whipped cream
     - how many calories are in chicken sandwich
     - how many calories are in bacon
-    - how much calories are in pizza
+    - how much calories are in a pizza
     - how much calories are in toast
     - how much calories are in cornflakes
     - how much calories are in hamburger
     - how much calories are in grilled chicken
     - how much calories are in belgian waffle
-    - how much calories are in omelette
+    - how much calories are in an omelette
     - how many carbohydrates are in a pizza
     - how many carbohydrates are in a toast
     - how many carbohydrates are in a cornflakes
@@ -116,13 +116,13 @@ get_calories:
     - how much sugar isin whipped cream
     - how much sugar is in a chicken sandwich
     - how much sugar is in a bacon
-    - how much sugar is in a pizza
-    - how much sugar is in a toast
-    - how much sugar is in a cornflakes
-    - how much sugar is in an hamburger
-    - how much sugar is in grilled chicken
-    - how much sugar is in a belgian waffle
-    - how much sugar is in anomelette
+    - how much sugars is in a pizza
+    - how much sugars is in a toast
+    - how much sugars is in a cornflakes
+    - how much sugars is in an hamburger
+    - how much sugars is in grilled chicken
+    - how much sugars is in a belgian waffle
+    - how much sugars is in anomelette
     - how many protein in a pizza
     - how many protein in a toast
     - how many protein in a cornflakes
@@ -205,34 +205,35 @@ get_calories:
     - sodium: attr 
     - protein: attr
     - proteins: attr
+    - sugars: attr 
 
 start-allergies:
   UserSays:
-  - I want to check food for allergies
-  - check food for allergies
+    - I want to check food for allergies
+    - check food for allergies
   
 get-allergies:
   UserSays:
-  - I'm allergic to gluten
-  - I'm allergic to nuts
-  - I'm allergic to peanuts
-  - I'm allergic to lactose
+    - I'm allergic to gluten
+    - I'm allergic to nuts
+    - I'm allergic to peanuts
+    - I'm allergic to lactose
   Annotaitions:
-  - peanuts: allergan
-  - gluten: allergan
-  - lactose: allergan
-  - nuts: allergan
+    - peanuts: allergan
+    - gluten: allergan
+    - lactose: allergan
+    - nuts: allergan
 
 get-food:
   userSays:
-  - cake
-  - pizza
-  - toast
-  - taco
-  - cheetos
+    - cake
+    - pizza
+    - toast
+    - taco
+    - cheetos
   Annotaitions:
-  - cake: product
-  - pizza: product
-  - toast: product
-  - taco: product
-  - cheetos: product
+    - cake: product
+    - pizza: product
+    - toast: product
+    - taco: product
+    - cheetos: product
