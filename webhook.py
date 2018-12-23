@@ -101,12 +101,14 @@ def getProductAttrByParam(name ,productAttr):
 
 @assist.action('start-allergies')
 def start_allergies():
+    context_manager.add('await_for_food')
     speech = "sure, to what food you are allergic to?"
     return ask(speech)
 
 
 @assist.action('get-allergies')
 def get_allergies(allergan):
+    context_manager.set('await_for_food','allergy',allergan)
     if not allergan:
         speech = "I couldn't understand that, please repeat"
         return ask(speech)
@@ -116,7 +118,8 @@ def get_allergies(allergan):
 
 @assist.action('get-food')
 def get_food(product):
-    context = context_manager.get('food_attr')
+    context = context_manager.get('await_for_food')
+    pdb.set_trace()
     product = context.parameters['product']
     allergy = context.parameters['allergan']
     #TODO: need to check here what is happening if they have two allergies
