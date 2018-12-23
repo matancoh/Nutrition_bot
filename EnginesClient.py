@@ -1,5 +1,8 @@
 import FoodEngine
-
+import Menu
+import User
+import MailService
+from random import randint
 
 class HealthStatus:
     HealtyFood = 'Healty Food'
@@ -25,9 +28,12 @@ class FoodEngineClient(object):
         return engine
 
     def findProductByName(self, name):
-        products = self.nameIREngine.search(name)
-        topProduct = self.nameIREngine.get(products[products.__len__()- 1][1])
-        return topProduct
+        try:
+            products = self.nameIREngine.search(name)
+            topProduct = self.nameIREngine.get(products[products.__len__()- 1][1])
+            return topProduct
+        except:
+            return None
 
     def findProductByIngredients(self, Ingredients):
         products = self.ingredientsIREngine.search(Ingredients)
@@ -85,18 +91,99 @@ class FoodEngineClient(object):
         res = []
         # if res == None than the food is healthy
         ingredientsTerms = FoodEngine.tokenization_function(product.ingredients)
-        self.addAllergy(Allergy.Celiac, ingredientsTerms, res)
-        self.addAllergy(Allergy.Lactose, ingredientsTerms, res)
-        self.addAllergy(Allergy.Peanuts, ingredientsTerms, res)
-        self.addAllergy(Allergy.Nuts, ingredientsTerms, res)
-        self.addAllergy(Allergy.Soya, ingredientsTerms, res)
+        self._addAllergy(Allergy.Celiac, ingredientsTerms, res)
+        self._addAllergy(Allergy.Lactose, ingredientsTerms, res)
+        self._addAllergy(Allergy.Peanuts, ingredientsTerms, res)
+        self._addAllergy(Allergy.Nuts, ingredientsTerms, res)
+        self._addAllergy(Allergy.Soya, ingredientsTerms, res)
         return res
 
-    def addAllergy(self, allergy, ingredientsTerms, res):
+    def _addAllergy(self, allergy, ingredientsTerms, res):
         for term in allergy['ingredients']:
             termAfterTokenization = FoodEngine.tokenization_function(term)
             if termAfterTokenization[0] in ingredientsTerms:
                 if allergy.get('name') not in res:
                     res.append(allergy.get('name'))
+
+
+    def createMenuAndSendMail(self, user:User):
+        menu = self._createMenu(user)
+        MailService.sendMenuMailToClient(user, menu)
+
+    def _createMenu(self, user : User):
+        totalCalories = self._calculateCalories(user.activityLevel, user.age, user.gender, user.height, user.weight)
+
+        breakfestCalories = int(totalCalories / 4)
+        lunchCalories = int(totalCalories / 3)
+        dinnerCalories = int(totalCalories / 4)
+        breakCalories = int(totalCalories - breakfestCalories  - lunchCalories - dinnerCalories) / 2
+
+        breakfest = self._createMeal('breakfest', breakfestCalories, user.taste)
+        breakOne = self._createMeal('break', breakCalories, user.taste)
+        lunch = self._createMeal('lunch', lunchCalories, user.taste)
+        breakTwo= self._createMeal('break', breakCalories, user.taste)
+        dinner = self._createMeal('dinner', dinnerCalories, user.taste)
+
+        return Menu.Menu(breakfest, breakOne, lunch, breakTwo, dinner)
+
+
+    def _createMeal(self, typeOfMeal, totalCaloriesForMeal, taste):
+        products = self._getProductsForMeal(taste, typeOfMeal)
+        servingAmount = self._calculateServingAmount(products, totalCaloriesForMeal)
+        sumOfCaloriesForMeal = self._calculateTotalCaloriesForMeal(products, servingAmount)
+
+        productMealLst = list()
+        if sumOfCaloriesForMeal < totalCaloriesForMeal:
+            productMealLst.append(self._addFruit())
+
+        for product in products:
+            productMealLst.append(Menu.ProductMeal(product, servingAmount))
+        return Menu.Meal(productMealLst)
+
+    def _addFruit(self):
+        options = Menu.MenuProductsOptions.items['fruit']
+        randomProduct = int(randint(0, options .__len__() - 1))
+        productsName = options[randomProduct]
+        product = self.findProductByName(productsName)
+
+        return Menu.ProductMeal(product, 1)
+
+    def _calculateTotalCaloriesForMeal(self, products, servingAmount):
+        sumOfCaloriesForMeal = 0
+        for product in products:
+            sumOfCaloriesForMeal = sumOfCaloriesForMeal + (float(product.serving.amount) / 100 * float(product.energy)) * float(servingAmount)
+        return sumOfCaloriesForMeal
+
+    def _calculateServingAmount(self, products, totalCaloriesForMeal):
+        sumOfCaloriesForMeal = 0
+        servingAmount = 0
+        while sumOfCaloriesForMeal <= totalCaloriesForMeal:
+            servingAmount = servingAmount + 1
+            sumOfCaloriesForMeal = self._calculateTotalCaloriesForMeal(products, servingAmount)
+        servingAmount = servingAmount - 1
+        return servingAmount
+
+    def _getProductsForMeal(self, taste, typeOfMeal):
+        Menu.MenuProductsOptions.items[typeOfMeal][taste]
+        randomProduct = int(randint(0, Menu.MenuProductsOptions.items[typeOfMeal][taste].__len__() - 1))
+        productsName = Menu.MenuProductsOptions.items[typeOfMeal][taste][randomProduct]
+        products = list()
+        for product in productsName:
+            products.append(self.findProductByName(product))
+        return products
+
+    def _calculateCalories(self, activityLevel, age, gender, height, weight):
+        bmr = (10 * weight) + (6.25 * height) - (5 * age)
+        if gender == User.Gender.Male:
+            bmr = bmr + 5
+        elif gender == User.Gender.Female:
+            bmr = bmr - 161
+        if activityLevel == User.ActivityLevel.Low:
+            pal = 1.53
+        elif activityLevel == User.ActivityLevel.Medium:
+            pal = 1.76
+        elif activityLevel == User.ActivityLevel.High:
+            pal = 2.25
+        return bmr * pal * 0.9
 
 
