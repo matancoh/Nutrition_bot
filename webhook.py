@@ -3,6 +3,7 @@ sys.path.append('/home/vmedu/Nutrition_bot')
 import re
 from flask import Flask
 from EnginesClient import FoodEngineClient
+from flask_assistant import context_manager
 from flask_assistant import Assistant, ask, tell, request, event, build_item
 import logging
 import pdb
@@ -100,9 +101,7 @@ def getProductAttrByParam(name ,productAttr):
 
 @assist.action('start-allergies')
 def start_allergies():
-    ALLERGIES = {}
     speech = "sure, to what food you are allergic to?"
-    
     return ask(speech)
 
 
@@ -111,25 +110,22 @@ def get_allergies(allergan):
     if not allergan:
         speech = "I couldn't understand that, please repeat"
         return ask(speech)
-
-    
-    ALLERGIES['allergy'] = allergan
     speech = "Ok, and what food you would like to check?"
     return ask(speech)
 
 
 @assist.action('get-food')
 def get_food(product):
+    context = context_manager.get('food_attr')
+    product = context.parameters['product']
+    allergy = context.parameters['allergan']
     #TODO: need to check here what is happening if they have two allergies
     product = EngineClient.findProductByName(product)
     allergans_in_product = EngineClient.checkAllergies(product)
-    allergy  = ALLERGIES['allergy']
-   
     if allergy in allergans_in_product:
         speech = "This food is not safe for you"
     else:
         speech = "I couldn't find any allergans in this food related to your allergies"
-    ALLERGIES = {}
     return tell(speech)
 
 if __name__ == '__main__':
