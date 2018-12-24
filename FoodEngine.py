@@ -305,10 +305,10 @@ class FoodEngine(object):
 
     def _createSetOfDocs(self, termsList):  # create set of union docs for list of terms
         productsIdSet = set()
-        sizeOfBatch = int(SIZE_OF_SEARCH_RESULTS / termsList.__len__())
+        if termsList.__len__() != 0:
+            sizeOfBatch = int(SIZE_OF_SEARCH_RESULTS / termsList.__len__())
 
         for term in termsList:
-            productsIdDic = {}
             sortedProducts = {}
             if term in self.inverted_index:
                 productsIdDic = self.inverted_index[term].copy()
