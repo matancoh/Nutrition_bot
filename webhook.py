@@ -95,6 +95,8 @@ def get_healthy(product):
 
     res = EngineClient.getHealtyFood(product)
     if res is None:
+        speech = "Sorry, I'm not familiar with this product, please try another"
+    elif res == True:
         speech = "{product} is healthy enough".format(product=product)
     else:
         #is value is necessary here?
