@@ -72,7 +72,7 @@ def getProductAttrByParam(name ,productAttr):
 @assist.action('start-allergies')
 def start_allergies():
     context_manager.add('await_for_food')
-    speech = "sure, to what food you are allergic to?"
+    speech = "sure, what is your allergy?"
     return ask(speech)
 
 
@@ -104,7 +104,8 @@ def get_food(product):
 ######################## healtier ############################
 @assist.action('get-healthy')
 def get_healthy(product):
-    res = engine.getHealtyFood(product)
+
+    res = EngineClient.getHealtyFood(product)
     if res is None:
         speech = "{product} is healthy enough".format(product=product)
     else:
@@ -112,6 +113,10 @@ def get_healthy(product):
         healthier_product_name = res.get('name')
         speech = "I found that {healtier} is healtier than {product}".format(healtier=healthier_product_name, product=product)
     return ask(speech)
+
+@assist.action('get-mail')
+def get_mail():
+    pdb.set_trace()
 
 if __name__ == '__main__':
     app.run(debug=True)
