@@ -72,7 +72,7 @@ def getProductAttrByParam(name ,productAttr):
 
 @assist.action('start-allergies')
 def start_allergies():
-    context_manager.add('await_for_food')
+    context_manager.add('await_for_food', lifespan=10)
     speech = "sure, what is your allergy?"
     return ask(speech)
 
@@ -90,6 +90,9 @@ def get_allergies(allergan):
 @assist.action('get-food')
 def get_food(product):
     context = context_manager.get('await_for_food')
+    if context is None:
+        speech = "sorry, can you please remind me what is your allergy?"
+        return ask(speech)
     product = context.parameters['product']
     allergy = context.parameters['allergan']
     #TODO: need to check here what is happening if they have two allergies
