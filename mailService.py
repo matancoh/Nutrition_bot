@@ -3,7 +3,7 @@ import Menu
 import User
 import os
 
-recipients = ['matan.cohen@gmail.com', 'zimerman@gmail.com']#, 'meidan89@gmail.com']
+recipients = ['MTA.SADNA2018@gmail.com']#, , 'zimerman@gmail.com', 'meidan89@gmail.com']
 
 
 with open('UserKeepLocal.txt','r') as f:
