@@ -18,7 +18,7 @@ def send_email(message, status, emailAddress):
     server.starttls()
     server.ehlo()
     server.login(user , password)
-    server.sendmail(fromaddr, emailAddress, 'Subject: %s\r\n%s' % (status, message))
+    server.sendmail(fromaddr, [emailAddress], 'Subject: %s\r\n%s' % (status, message))
     server.quit()
 
 def getProductsOfMealForMsg(meals):
