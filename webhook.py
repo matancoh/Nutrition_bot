@@ -39,45 +39,15 @@ class Speech:
     GET_PARAM = "The {} for {} are {}"
     ASK_PARAM = "for which food you want get {}?"
 
-
+# Initiate EngineClient
 EngineClient = FoodEngineClient()
-############### ASK ###################
-#@assist.action('ask_calories')
-# def ask_calories():
-    # speech = Speech.ASK_PARAM.format('calories')
-    # return ask(speech)
-    
-# @assist.action('ask_fat')
-# def ask_fat():
-    # speech = Speech.ASK_PARAM.format('fat')
-    # return ask(speech)
-
-# @assist.action('ask_sugar')
-# def ask_sugar():
-    # speech = Speech.ASK_PARAM.format('sugar')
-    # return ask(speech)
-
-# @assist.action('ask_protein')
-# def ask_protein():
-    # speech = Speech.ASK_PARAM.format('protein')
-    # return ask(speech)
-
-# @assist.action('ask_carbohydrate')
-# def ask_carbohydrate():
-    # speech = Speech.ASK_PARAM.format('carbohydrate')
-    # return ask(speech)
-
-# @assist.action('ask_sodium')
-# def ask_sodium():
-    # speech = Speech.ASK_PARAM.format('sodium')
-    # return ask(speech)
-###################################################################3
-
 
 @assist.action('get_calories')
 def get_calories(product, attr):
     #query = CALORIES_EXP.findall(assist.request['result']['resolvedQuery'])
     print(product, attr)
+    
+    #TODO: seperate to two checks, and reply with the relevant info (attr or product)
     if not product or not attr:
         speech = "couldn't understand please try with another product"
         return ask(speech)
@@ -128,6 +98,19 @@ def get_food(product):
         speech = "This food is not safe for you"
     else:
         speech = "I couldn't find any allergans in this food related to your allergies"
+    return ask(speech)
+######################################################
+
+######################## healtier ############################
+@assist.action('get-healthy')
+def get_healthy(product):
+    res = engine.getHealtyFood(product)
+    if res is None:
+        speech = "{product} is healthy enough".format(product=product)
+    else:
+        #is value is necessary here?
+        healthier_product_name = res.get('name')
+        speech = "I found that {healtier} is healtier than {product}".format(healtier=healthier_product_name, product=product)
     return ask(speech)
 
 if __name__ == '__main__':

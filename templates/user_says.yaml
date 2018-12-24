@@ -240,3 +240,15 @@ get-food:
     - toast: product
     - taco: product
     - cheetos: product
+
+get-healthy:
+  UserSays:
+    - get me healthier food than twix
+    - there is healtier food than borrito
+    - what is more healtier than pizza
+    - is apple healty
+  Annotations:
+    - twix: product
+    - borrito: product
+    - pizza: product
+    - apple: product
