@@ -36,8 +36,7 @@ def sendMenuMailToClient(user : User, menu: Menu.Menu):
         breakOne = getProductsOfMealForMsg(menu.breakOne.lstProducts)
         breakTwo = getProductsOfMealForMsg(menu.breakTwo.lstProducts)
 
-        data = myfile.read().replace('<fullname>',user.name)\
-            .replace('<gender>', user.gender)\
+        data = myfile.read().replace('<gender>', user.gender)\
             .replace('<age>', str(user.age)) \
             .replace('<weight>', str(user.weight)) \
             .replace('<height>', str(user.height)) \
@@ -49,5 +48,5 @@ def sendMenuMailToClient(user : User, menu: Menu.Menu):
             .replace('<BetweenSecond>', breakTwo) \
             .replace('<Dinner>', dinner)
 
-        send_email(data,"Hi {}, Awesome menu is waiting for you!!".format(user.name), user.email)
+        send_email(data,"Awesome menu is waiting for you!!", user.email)
 

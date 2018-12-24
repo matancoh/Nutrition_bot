@@ -13,8 +13,7 @@ class Taste:
     Omnivorous = 'Omnivorous'
 
 class User(object):
-    def __init__(self, name, gender : Gender , age, weight, height, taste : Taste , activityLevel : ActivityLevel, email):
-        self.name = name
+    def __init__(self, gender : Gender , age, weight, height, taste : Taste , activityLevel : ActivityLevel, email):
         self.gender = gender
         self.age = age
         self.weight = weight

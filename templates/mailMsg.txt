@@ -1,5 +1,4 @@
 
-Name: <fullname>
 Gender: <gender>
 Age: <age>
 Weight: <weight> Kg
