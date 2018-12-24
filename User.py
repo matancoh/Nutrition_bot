@@ -10,7 +10,7 @@ class Gender:
 class Taste:
     Vegetarian = 'vegetarian'
     Vegan = 'vegan'
-    Omnivorous = 'omnivorous'
+    Omnivorous = 'normal'
 
 class User(object):
     def __init__(self, gender : Gender , age, weight, height, taste : Taste , activityLevel : ActivityLevel, email):
