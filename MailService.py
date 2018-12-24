@@ -11,14 +11,14 @@ with open('UserKeepLocal.txt','r') as f:
     password = f.readline()
 
 
-def send_email (message, status):
+def send_email(message, status, emailAddress):
     fromaddr = 'MTA.SADNA2018@gmail.com'
     server = SMTP('smtp.gmail.com:587')
     server.ehlo()
     server.starttls()
     server.ehlo()
     server.login(user , password)
-    server.sendmail(fromaddr, recipients, 'Subject: %s\r\n%s' % (status, message))
+    server.sendmail(fromaddr, emailAddress, 'Subject: %s\r\n%s' % (status, message))
     server.quit()
 
 def getProductsOfMealForMsg(meals):
@@ -49,6 +49,5 @@ def sendMenuMailToClient(user : User, menu: Menu.Menu):
             .replace('<BetweenSecond>', breakTwo) \
             .replace('<Dinner>', dinner)
 
-        send_email(data,"Hi {}, Awesome menu is waiting for you!!".format(user.name))
-    return data
+        send_email(data,"Hi {}, Awesome menu is waiting for you!!".format(user.name), user.email)
 
