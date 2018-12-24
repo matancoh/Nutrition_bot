@@ -7,6 +7,7 @@ from flask_assistant import context_manager
 from flask_assistant import Assistant, ask, tell, request, event, build_item
 import logging
 import pdb
+import User
 
 ############### REGULAR EXPRESSIONS#####################
 CALORIES_EXP = re.compile("how [many|much]+ calories ?are in [a|an]+ (.*)")

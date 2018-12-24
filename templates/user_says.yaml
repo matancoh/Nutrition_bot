@@ -234,6 +234,15 @@ get-food:
     - toast
     - taco
     - cheetos
+    - is pizza safe for me?
+    - is toast safe for me?
+    - can i eat crackers?
+    - is pizza safe for me
+    - is toast safe for me
+    - can i eat cake?
+    - can i eat cake
+    - can i eat taco?
+    - can i eat taco
   Annotations:
     - cake: product
     - pizza: product
