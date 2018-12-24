@@ -48,12 +48,21 @@ class FoodEngineClient(object):
         # if res == None than the food is healthy
         res : FoodEngine.Product = None
         product = self.findProductByName(name)
+
+        if product == None:
+            return None
+
         productStatus = self.getHealthStatus(product)
 
         if HealthStatus.HealtyFood in productStatus:
-            return None
+            return True
         else:
-            productsId = self.ingredientsIREngine.search(product.ingredients, numberOfResults = FoodEngine.SIZE_OF_RESULTS_HEALTH)
+            ingredientsStr = ''
+            ingredients = product.ingredients.split(',')
+            for curr in range(0, int(ingredients .__len__() / 4)):
+                ingredientsStr = ingredientsStr +" " + ingredients[curr]
+
+            productsId = self.ingredientsIREngine.search(ingredientsStr , numberOfResults = FoodEngine.SIZE_OF_RESULTS_HEALTH)
             for productTuple in productsId:
                 productCurr : FoodEngine.Product = self.nameIREngine.get(productTuple[1])
                 if (productCurr.id != product.id):
