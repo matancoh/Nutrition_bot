@@ -1,16 +1,16 @@
 class ActivityLevel:
-    Low = 'Low'
-    Medium = 'Medium'
-    High = 'High'
+    Low = 'low'
+    Medium = 'medium'
+    High = 'high'
 
 class Gender:
-    Male = 'Male'
-    Female = 'Female'
+    Male = 'male'
+    Female = 'female'
 
 class Taste:
-    Vegetarian = 'Vegetarian'
-    Vegan = 'Vegan'
-    Omnivorous = 'Omnivorous'
+    Vegetarian = 'vegetarian'
+    Vegan = 'vegan'
+    Omnivorous = 'omnivorous'
 
 class User(object):
     def __init__(self, gender : Gender , age, weight, height, taste : Taste , activityLevel : ActivityLevel, email):
