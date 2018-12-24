@@ -116,7 +116,21 @@ def get_healthy(product):
 
 @assist.action('get-mail')
 def get_mail():
-    pdb.set_trace()
-
+    context = context_manager.get('get-age-followup')
+    
+    age = context.parameters['age']['amount']
+    prefernce = context.parameters['food-perference']
+    gender = context.parameters['gender']
+    weight = context.parameters['unit-weight']['amount']
+    height = context.parameters['unit-length']['amount']
+    email = context.parameters['email']
+    activity = context.parameters['activity-level']
+    user = User.User(name='amit',  gender = gender, age=age, weight=weight,
+                     height=height, taste=prefernce, activityLevel=activity,
+                     email=email)
+    menu = EngineClient.createMenuAndSendMail(user)
+    
+    speech = "thank you"
+    return ask(speech)
 if __name__ == '__main__':
     app.run(debug=True)
