@@ -9,22 +9,8 @@ import logging
 import pdb
 import User
 
-############### REGULAR EXPRESSIONS#####################
-CALORIES_EXP = re.compile("how [many|much]+ calories ?are in [a|an]+ (.*)")
-FAT_EXP = re.compile("how [many|much]+ fat ?is in [a|an] (.*)")
-SUGAR_EXP = re.compile("how [many|much]+ sugar ?is in [a|an]+ (.*)")
-PROTEIN_EXP = re.compile("how [many|much]+ protein|proteins ?are in [a|an]+ (.*)")
-CARBS_EXP = re.compile("how [many|much]+ carbs|carbohydrates ?are in [a|an]+ (.*)")
-SODIUM_EXP = re.compile("how [many|much]+ sodium ?is in [a|an]+ (.*)")
 
 
-#####################################################
-
-############### CONSTS #####################
-
-ALLERGIES = {}
-
-#####################################################
 logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
 app = Flask(__name__)
 assist = Assistant(app, route='/')
@@ -62,8 +48,6 @@ def getProductAttrByParam(name ,productAttr):
     res =  EngineClient.findProductByName(name)
     #speech = Speech.GET_PARAM.format(productAttr, name, res.get(productAttr))
     return round(float(res.get(productAttr)))
-############### PRODUCT ATTRIBUTE ###################
-
 
 
 
@@ -103,7 +87,7 @@ def get_food(product):
     else:
         speech = "I couldn't find any allergans in this food related to your allergies"
     return ask(speech)
-######################################################
+####################################################################
 
 ######################## healtier ############################
 @assist.action('get-healthy')
@@ -129,12 +113,13 @@ def get_mail():
     height = context.parameters['unit-length']['amount']
     email = context.parameters['email']
     activity = context.parameters['activity-level']
-    user = User.User(name='amit',  gender = gender, age=age, weight=weight,
+    user = User.User(gender=gender, age=age, weight=weight,
                      height=height, taste=prefernce, activityLevel=activity,
                      email=email)
     menu = EngineClient.createMenuAndSendMail(user)
     
     speech = "thank you"
     return ask(speech)
+    
 if __name__ == '__main__':
     app.run(debug=True)
