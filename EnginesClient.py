@@ -46,11 +46,11 @@ class FoodEngineClient(object):
 
     def getHealtyFood(self, name):
         # if res == None than the food is healthy
-        res : FoodEngine.Product = None
+        res: FoodEngine.Product = None
         product = self.findProductByName(name)
 
         if product == None:
-            return None
+            return False
 
         productStatus = self.getHealthStatus(product)
 
