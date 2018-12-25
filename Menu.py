@@ -41,11 +41,11 @@ class Meal(object):
 
 class Menu(object):
     def __init__(self, _breakfest, _brakOne, _lunch, _breakTwo, _dinner):
-        self.breakfest : Meal = _breakfest
-        self.breakOne : Meal = _brakOne
-        self.lunch : Meal = _lunch
-        self.breakTwo : Meal = _breakTwo
-        self.dinner : Meal = _dinner
+        self.breakfest = _breakfest
+        self.breakOne = _brakOne
+        self.lunch = _lunch
+        self.breakTwo = _breakTwo
+        self.dinner = _dinner
 
 
 
