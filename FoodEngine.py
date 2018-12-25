@@ -48,7 +48,7 @@ class Product(object):
         self.sugars = None
         self.sodium = None
         self.fatSaturated = None
-        self.serving: Serving = None
+        self.serving = None
 
 
     def get(self, attrName):
