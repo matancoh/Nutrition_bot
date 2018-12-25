@@ -31,7 +31,7 @@ class MenuProductsOptions:
                             }
 
 class ProductMeal(object):
-    def __init__(self, _product : FoodEngine.Product, _amount):
+    def __init__(self, _product, _amount):
         self.product = _product
         self.amount = _amount
 
