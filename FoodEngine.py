@@ -29,7 +29,7 @@ class Unit:
     Gram = 'g'
 
 class Serving(object):
-    def __init__(self, amount, unit: Unit, servingTool, servingAmount):
+    def __init__(self, amount, unit, servingTool, servingAmount):
         self.amount = amount
         self.unit = unit
         self.servingTool = servingTool
@@ -294,7 +294,7 @@ class FoodEngine(object):
 
         return queryVector
 
-    def _inverseDocFreq(self, termList: list):  # create idf for corpus
+    def _inverseDocFreq(self, termList):  # create idf for corpus
         termListIdf = {}
         for term in termList:
             if term in self.inverted_index:

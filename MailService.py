@@ -28,7 +28,7 @@ def getProductsOfMealForMsg(meals):
 
     return msgMeal
 
-def sendMenuMailToClient(user : User, menu: Menu.Menu):
+def sendMenuMailToClient(user, menu):
     with open(os.path.join('.','templates','mailMsg.txt'), 'r') as myfile:
         breakfest = getProductsOfMealForMsg(menu.breakfest.lstProducts)
         lunch = getProductsOfMealForMsg(menu.lunch.lstProducts)
