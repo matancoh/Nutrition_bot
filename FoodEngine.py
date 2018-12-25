@@ -252,11 +252,6 @@ class FoodEngine(object):
 
         return product
 
-
-    def _sizeOfDic(self):
-        print(f'THE SIZE OF THE DICTIONARY IS: {len(self.inverted_index)}')
-        return len(self.inverted_index)
-
     def _sliceDicFunc(self, number_to_slice=10):
         return dict(itertools.islice(self.inverted_index.items(), number_to_slice))
 
