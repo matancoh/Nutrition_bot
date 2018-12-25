@@ -73,7 +73,7 @@ class FoodEngineClient(object):
 
             productsId = self.ingredientsIREngine.search(ingredientsStr , numberOfResults = FoodEngine.SIZE_OF_RESULTS_HEALTH)
             for productTuple in productsId:
-                productCurr : FoodEngine.Product = self.nameIREngine.get(productTuple[1])
+                productCurr = self.nameIREngine.get(productTuple[1])
                 if (productCurr.id != product.id):
                     foodStatus = self.getHealthStatus(productCurr)
                     res = self.compareProducts(foodStatus, productCurr, res)
