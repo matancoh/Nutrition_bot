@@ -124,11 +124,11 @@ class FoodEngineClient(object):
                     res.append(allergy.get('name'))
 
 
-    def createMenuAndSendMail(self, user:User):
+    def createMenuAndSendMail(self, user):
         menu = self._createMenu(user)
         MailService.sendMenuMailToClient(user, menu)
 
-    def _createMenu(self, user : User):
+    def _createMenu(self, user):
         totalCalories = self._calculateCalories(user.activityLevel, user.age, user.gender, user.height, user.weight)
 
         breakfestCalories = int(totalCalories / 4)
