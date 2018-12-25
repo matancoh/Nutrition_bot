@@ -3,6 +3,7 @@ import Menu
 import User
 import MailService
 from random import randint
+from multiprocessing.pool import ThreadPool
 
 class HealthStatus:
     HealtyFood = 'Healty Food'
@@ -21,6 +22,7 @@ class FoodEngineClient(object):
     def __init__(self):
         self.ingredientsIREngine = self.loadEngine('Ingredients')
         self.nameIREngine = self.loadEngine('Name')
+        self.healtyFoodResult = ''
 
     def loadEngine(self, nameOfEngine):
         engine = FoodEngine.FoodEngine(nameOfEngine)
@@ -44,7 +46,14 @@ class FoodEngineClient(object):
         product = self.nameIREngine.products[id]
         return product
 
+    def getHealtyResult(self):
+        return self.healtyFoodResult.get()
+
     def getHealtyFood(self, name):
+        pool = ThreadPool(processes=1)
+        self.healtyFoodResult = pool.apply_async(FoodEngineClient._getHealtyFoodHelper, (self, name))
+
+    def _getHealtyFoodHelper(self, name):
         # if res == None than the food is healthy
         res: FoodEngine.Product = None
         product = self.findProductByName(name)
