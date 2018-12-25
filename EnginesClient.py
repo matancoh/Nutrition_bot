@@ -87,7 +87,7 @@ class FoodEngineClient(object):
             res = productCurr
         return res
 
-    def getHealthStatus(self, product: FoodEngine.Product):
+    def getHealthStatus(self, product):
         res = []
         isHighSodium = float(product.sodium) >= 400.0
         isHighSugar = float(product.sugars) >= 10.0
