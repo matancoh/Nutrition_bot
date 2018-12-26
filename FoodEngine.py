@@ -118,8 +118,8 @@ class FoodEngine(object):
             productId = product['\ufeffNDB_No']
 
             if(data[productId] != None):
-                data[productId].serving = Serving(product['Serving_Size'], product['Serving_Size_UOM'],
-                                        product['Household_Serving_Size'], product['Household_Serving_Size_UOM'])
+                data[productId].serving = Serving(amount=product['Serving_Size'],unit= product['Serving_Size_UOM'],
+                                        servingAmount=product['Household_Serving_Size'],servingTool= product['Household_Serving_Size_UOM'])
 
         for productId in data:
             product = data.get(productId)
