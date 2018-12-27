@@ -92,12 +92,22 @@ def get_food(product):
 ######################## healtier ############################
 @assist.action('get-healthy')
 def get_healthy(product):
-
     res = EngineClient.getHealtyFood(product)
+    speech = "I'm looking for healthier food, in the mean time, can you tell me what is the color of an apple?"
+    return ask(speech)
+    
+@assist.action('retrive-healthy')
+def retrive_healthy():
+    time.sleep(3)
+    context = context_manager.get('healthy')
+    pdb.set_trace()
+    res = engine.getHealtyResult()
     if res is None:
+        speech = "Sorry, I couldn't find healtier food than {product}".format(product=product)
+    is res == False:
         speech = "Sorry, I'm not familiar with this product, please try another"
     elif res == True:
-        speech = "{product} is healthy enough".format(product=product)
+        speech = "{product} is healthy".format(product=product)
     else:
         #is value is necessary here?
         healthier_product_name = res.get('name')
