@@ -8,7 +8,7 @@ from flask_assistant import Assistant, ask, tell, request, event, build_item
 import logging
 import pdb
 import User
-
+import time
 
 
 logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
@@ -97,14 +97,14 @@ def get_healthy(product):
     return ask(speech)
     
 @assist.action('retrive-healthy')
-def retrive_healthy():
+def retrive_healthy(color):
     time.sleep(3)
     context = context_manager.get('healthy')
-    pdb.set_trace()
-    res = engine.getHealtyResult()
+    #pdb.set_trace()
+    res = EngineClient.getHealtyResult()
     if res is None:
         speech = "Sorry, I couldn't find healtier food than {product}".format(product=product)
-    is res == False:
+    if res == False:
         speech = "Sorry, I'm not familiar with this product, please try another"
     elif res == True:
         speech = "{product} is healthy".format(product=product)
