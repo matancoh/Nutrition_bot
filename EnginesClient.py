@@ -47,7 +47,11 @@ class FoodEngineClient(object):
         return product
 
     def getHealtyResult(self):
-        return self.healtyFoodResult.get()
+        if(self.healtyFoodResult.ready()):
+            return self.healtyFoodResult.get()
+        else:
+            return "WAIT"
+
 
     def getHealtyFood(self, name):
         pool = ThreadPool(processes=1)

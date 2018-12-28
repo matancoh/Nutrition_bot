@@ -102,6 +102,8 @@ def retrive_healthy(color):
     context = context_manager.get('healthy')
     #pdb.set_trace()
     res = EngineClient.getHealtyResult()
+    if res == 'WAIT':
+        speech = "Request Still in Process ,it will take a few seconds"
     if res is None:
         speech = "Sorry, I couldn't find healtier food than {product}".format(product=product)
     if res == False:
