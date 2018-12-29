@@ -166,7 +166,7 @@ class FoodEngineClient(object):
         sumOfCaloriesForMeal = self._calculateTotalCaloriesForMeal(products, servingAmount)
 
         productMealLst = list()
-        if sumOfCaloriesForMeal < totalCaloriesForMeal:
+        if (totalCaloriesForMeal - sumOfCaloriesForMeal) >= 150:
             productMealLst.append(self._addFruit())
 
         for product in products:
