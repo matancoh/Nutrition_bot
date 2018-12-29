@@ -97,7 +97,7 @@ def get_healthy(product):
     
 @assist.action('retrive-healthy')
 def retrive_healthy(color):
-    time.sleep(10)
+    time.sleep(5)
     context = context_manager.get('healthy')
     #pdb.set_trace()
     res = EngineClient.getHealtyResult()
