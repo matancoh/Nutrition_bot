@@ -9,7 +9,7 @@ import logging
 import pdb
 import User
 import time
-
+from multiprocessing.pool import ThreadPool
 
 logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
 app = Flask(__name__)
@@ -28,7 +28,7 @@ class Speech:
 
 # Initiate EngineClient
 EngineClient = FoodEngineClient()
-
+userHealthyRes = ''
 @assist.action('get_calories')
 def get_calories(product, attr):
     #query = CALORIES_EXP.findall(assist.request['result']['resolvedQuery'])
@@ -91,15 +91,21 @@ def get_food(product):
 ######################## healtier ############################
 @assist.action('get-healthy')
 def get_healthy(product):
-    EngineClient.getHealtyFood(product)
+    pool = ThreadPool(processes=1)
+    userLastRes = pool.apply_async(FoodEngineClient._getHealtyFoodHelper, (EngineClient, product))
+    # EngineClient.getHealtyFood(product)
     speech = "I'm looking for healthier food, in the mean time, can you tell me what is the color of an apple?"
     return ask(speech)
     
 @assist.action('retrive-healthy')
 def retrive_healthy(color):
-    # time.sleep(3)
+    time.sleep(3)
     context = context_manager.get('healthy')
-    res = EngineClient.getHealtyResult()
+    if(userHealthyRes.ready()):
+        res = userHealthyRes
+    else:
+        res = 'WAIT'
+    # res = EngineClient.getHealtyResult()
     pdb.set_trace()
     if res == 'WAIT':
         speech = "Request Still in Process ,it will take a few seconds"
