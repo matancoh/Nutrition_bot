@@ -134,6 +134,10 @@ class FoodEngineClient(object):
 
 
     def createMenuAndSendMail(self, user):
+        pool = ThreadPool(processes=1)
+        pool.apply_async(FoodEngineClient._createMenuAndSendMailHelper,(self, user))
+
+    def _createMenuAndSendMailHelper(self, user):
         menu = self._createMenu(user)
         MailService.sendMenuMailToClient(user, menu)
 
