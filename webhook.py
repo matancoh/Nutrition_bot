@@ -97,7 +97,7 @@ def get_healthy(product):
     
 @assist.action('retrive-healthy')
 def retrive_healthy(color):
-    time.sleep(3)
+    time.sleep(1)
     context = context_manager.get('healthy')
     product = context.parameters['product']
     res = EngineClient.getHealtyResult()
@@ -106,7 +106,7 @@ def retrive_healthy(color):
         res = EngineClient.getHealtyResult()
     if res == 'WAIT':
         speech = "umm I think I saw an apple in that color once. but any way, I'm sorry I couldn't find it please try with another product"
-    if res is None:
+    elif res is None:
         speech = "umm I think I saw an apple in that color once. but any way, I'm Sorry, I couldn't find healtier food than {product}".format(product=product)
     elif res == False:
         speech = "umm I think I saw an apple in that color once. but Sorry, I'm not familiar with this product, please try another"
