@@ -91,13 +91,13 @@ def get_food(product):
 ######################## healtier ############################
 @assist.action('get-healthy')
 def get_healthy(product):
-    res = EngineClient.getHealtyFood(product)
+    EngineClient.getHealtyFood(product)
     speech = "I'm looking for healthier food, in the mean time, can you tell me what is the color of an apple?"
     return ask(speech)
     
 @assist.action('retrive-healthy')
 def retrive_healthy(color):
-    time.sleep(3)
+    time.sleep(10)
     context = context_manager.get('healthy')
     #pdb.set_trace()
     res = EngineClient.getHealtyResult()
