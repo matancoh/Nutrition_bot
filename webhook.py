@@ -92,7 +92,7 @@ def get_food(product):
 @assist.action('get-healthy')
 def get_healthy(product):
     pool = ThreadPool(processes=1)
-    userLastRes = pool.apply_async(FoodEngineClient._getHealtyFoodHelper, (EngineClient, product))
+    userHealthyRes = pool.apply_async(FoodEngineClient._getHealtyFoodHelper, (EngineClient, product))
     # EngineClient.getHealtyFood(product)
     speech = "I'm looking for healthier food, in the mean time, can you tell me what is the color of an apple?"
     return ask(speech)
