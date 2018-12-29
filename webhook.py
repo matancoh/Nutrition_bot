@@ -46,9 +46,9 @@ def get_calories(product, attr):
 
 def getProductAttrByParam(name ,productAttr):
     res =  EngineClient.findProductByName(name)
+    pdb.set_trace()
     #speech = Speech.GET_PARAM.format(productAttr, name, res.get(productAttr))
     return round(float(res.get(productAttr)))
-
 
 
 ####################### ALLERGIES #################
