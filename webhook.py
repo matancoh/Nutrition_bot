@@ -103,14 +103,15 @@ def retrive_healthy(color):
     res = EngineClient.getHealtyResult()
     if res == 'WAIT':
         speech = "Request Still in Process ,it will take a few seconds"
-    if res is None:
+    elif res is None:
         speech = "Sorry, I couldn't find healtier food than {product}".format(product=product)
-    if res == False:
+    elif res == False:
         speech = "Sorry, I'm not familiar with this product, please try another"
     elif res == True:
         speech = "{product} is healthy".format(product=product)
     else:
         #is value is necessary here?
+        pdb.set_trace()
         healthier_product_name = res.get('name')
         speech = "I found that {healtier} is healtier than {product}".format(healtier=healthier_product_name, product=product)
     return ask(speech)
