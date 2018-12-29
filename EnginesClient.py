@@ -60,8 +60,6 @@ class FoodEngineClient(object):
 
 
     def getHealtyFood(self, name):
-        # pool = ThreadPool(processes=1)
-        # self.healtyFoodResult = pool.apply_async(FoodEngineClient._getHealtyFoodHelper, (self, name))
         self.healtyFoodResult = ''
         t = threading.Thread(target= FoodEngineClient._getHealtyFoodHelper, args=(self, name))
         t.start()
@@ -138,7 +136,8 @@ class FoodEngineClient(object):
 
 
     def createMenuAndSendMail(self, user):
-        self._createMenuAndSendMailHelper(user)
+        t = threading.Thread(target=FoodEngineClient._createMenuAndSendMailHelper, args=(self, user))
+        t.start()
 
     def _createMenuAndSendMailHelper(self, user):
         menu = self._createMenu(user)
