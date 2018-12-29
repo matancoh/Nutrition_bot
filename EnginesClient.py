@@ -34,13 +34,18 @@ class FoodEngineClient(object):
             products = self.nameIREngine.search(name)
             topProduct = self.nameIREngine.get(products[products.__len__()- 1][1])
             return topProduct
-        except:
+        except Exception as e:
+            print(e)
             return None
 
     def findProductByIngredients(self, Ingredients):
-        products = self.ingredientsIREngine.search(Ingredients)
-        topProduct = self.ingredientsIREngine.get(products[products.__len__()- 1][1])
-        return topProduct
+        try:
+            products = self.ingredientsIREngine.search(Ingredients)
+            topProduct = self.ingredientsIREngine.get(products[products.__len__()- 1][1])
+            return topProduct
+        except Exception as e:
+            print(e)
+            return None
 
     def getProductById(self,id):
         product = self.nameIREngine.products[id]
