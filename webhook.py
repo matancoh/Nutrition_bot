@@ -111,7 +111,6 @@ def retrive_healthy(color):
         speech = "{product} is healthy".format(product=product)
     else:
         #is value is necessary here?
-        pdb.set_trace()
         healthier_product_name = res.get('name')
         speech = "I found that {healtier} is healtier than {product}".format(healtier=healthier_product_name, product=product)
     return ask(speech)
