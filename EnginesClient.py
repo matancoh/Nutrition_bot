@@ -3,7 +3,8 @@ import Menu
 import User
 import MailService
 from random import randint
-from multiprocessing.pool import ThreadPool
+import time, threading
+
 
 class HealthStatus:
     HealtyFood = 'Healty Food'
@@ -52,15 +53,18 @@ class FoodEngineClient(object):
         return product
 
     def getHealtyResult(self):
-        if(self.healtyFoodResult.ready()):
-            return self.healtyFoodResult.get()
+        if(self.healtyFoodResult != ''):
+            return self.healtyFoodResult
         else:
             return "WAIT"
 
 
     def getHealtyFood(self, name):
-        pool = ThreadPool(processes=1)
-        self.healtyFoodResult = pool.apply_async(FoodEngineClient._getHealtyFoodHelper, (self, name))
+        # pool = ThreadPool(processes=1)
+        # self.healtyFoodResult = pool.apply_async(FoodEngineClient._getHealtyFoodHelper, (self, name))
+        self.healtyFoodResult = ''
+        t = threading.Thread(target= FoodEngineClient._getHealtyFoodHelper, args=(self, name))
+        t.start()
 
     def _getHealtyFoodHelper(self, name):
         # if res == None than the food is healthy
@@ -68,12 +72,12 @@ class FoodEngineClient(object):
         product = self.findProductByName(name)
 
         if product == None:
-            return False
+            self.healtyFoodResult = False
 
         productStatus = self.getHealthStatus(product)
 
         if HealthStatus.HealtyFood in productStatus:
-            return True
+            self.healtyFoodResult = True
         else:
             ingredientsStr = ''
             ingredients = product.ingredients.split(',')
@@ -86,7 +90,7 @@ class FoodEngineClient(object):
                 if (productCurr.id != product.id):
                     foodStatus = self.getHealthStatus(productCurr)
                     res = self.compareProducts(foodStatus, productCurr, res)
-            return res
+            self.healtyFoodResult = res
 
     def compareProducts(self, foodStatus, productCurr, res):
         if (res == None) and (HealthStatus.HealtyFood in foodStatus):
@@ -134,8 +138,7 @@ class FoodEngineClient(object):
 
 
     def createMenuAndSendMail(self, user):
-        pool = ThreadPool(processes=1)
-        pool.apply_async(FoodEngineClient._createMenuAndSendMailHelper,(self, user))
+        self._createMenuAndSendMailHelper(user)
 
     def _createMenuAndSendMailHelper(self, user):
         menu = self._createMenu(user)

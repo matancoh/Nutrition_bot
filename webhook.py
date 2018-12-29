@@ -91,9 +91,7 @@ def get_food(product):
 ######################## healtier ############################
 @assist.action('get-healthy')
 def get_healthy(product):
-    pool = ThreadPool(processes=1)
-    userHealthyRes = pool.apply_async(FoodEngineClient._getHealtyFoodHelper, (EngineClient, product))
-    # EngineClient.getHealtyFood(product)
+    EngineClient.getHealtyFood(product)
     speech = "I'm looking for healthier food, in the mean time, can you tell me what is the color of an apple?"
     return ask(speech)
     
@@ -101,11 +99,7 @@ def get_healthy(product):
 def retrive_healthy(color):
     time.sleep(3)
     context = context_manager.get('healthy')
-    if(userHealthyRes.ready()):
-        res = userHealthyRes
-    else:
-        res = 'WAIT'
-    # res = EngineClient.getHealtyResult()
+    res = EngineClient.getHealtyResult()
     pdb.set_trace()
     if res == 'WAIT':
         speech = "Request Still in Process ,it will take a few seconds"
