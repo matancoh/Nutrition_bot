@@ -59,7 +59,7 @@ class FoodEngineClient(object):
 
 
     def getHealtyFood(self, name):
-        pool = ThreadPool(processes=1)
+        pool = ThreadPool(processes=2)
         self.healtyFoodResult = pool.apply_async(FoodEngineClient._getHealtyFoodHelper, (self, name))
 
     def _getHealtyFoodHelper(self, name):
