@@ -97,10 +97,10 @@ def get_healthy(product):
     
 @assist.action('retrive-healthy')
 def retrive_healthy(color):
-    time.sleep(5)
+    # time.sleep(3)
     context = context_manager.get('healthy')
-    pdb.set_trace()
     res = EngineClient.getHealtyResult()
+    pdb.set_trace()
     if res == 'WAIT':
         speech = "Request Still in Process ,it will take a few seconds"
     elif res is None:
