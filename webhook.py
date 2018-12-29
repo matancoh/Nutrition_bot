@@ -102,17 +102,20 @@ def retrive_healthy(color):
     product = context.parameters['product']
     res = EngineClient.getHealtyResult()
     if res == 'WAIT':
-        speech = "Request Still in Process ,it will take a few seconds"
-    elif res is None:
-        speech = "Sorry, I couldn't find healtier food than {product}".format(product=product)
+        time.sleep(3)
+        res = EngineClient.getHealtyResult()
+    if res == 'WAIT':
+        speech = "umm I think I saw an apple in that color once. but any way, I'm sorry I couldn't find it please try with another product"
+    if res is None:
+        speech = "umm I think I saw an apple in that color once. but any way, I'm Sorry, I couldn't find healtier food than {product}".format(product=product)
     elif res == False:
-        speech = "Sorry, I'm not familiar with this product, please try another"
+        speech = "umm I think I saw an apple in that color once. but Sorry, I'm not familiar with this product, please try another"
     elif res == True:
-        speech = "{product} is healthy".format(product=product)
+        speech = "umm I think I saw an apple in that color once, but any way {product} is healthy".format(product=product)
     else:
         #is value is necessary here?
         healthier_product_name = res.get('name')
-        speech = "I found that {healtier} is healtier than {product}".format(healtier=healthier_product_name, product=product)
+        speech = "umm I think I saw an apple in that color once. any way I found that {healtier} is healtier than {product}".format(healtier=healthier_product_name, product=product)
     return ask(speech)
 
 @assist.action('get-mail')
