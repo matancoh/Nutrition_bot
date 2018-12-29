@@ -45,7 +45,10 @@
 				<h5>Height: height Cm</h5>
 				<h5>Food Preference: foodpreference</h5>
 				<h5>Exercise Frequency: Exercisefrequency</h5>
-
+			</td>
+			<td>
+			<img src="https://ae01.alicdn.com/kf/HTB15bucNXXXXXblXFXXq6xXFXXXB/Simon-s-Bowl-Cat-Vinyl-Decal-Hungry-Feed-Me-Funny-Car-Window-Sticker-Truck-Fuel-Tank.jpg_640x640.jpg" width="250" height="250">
+			</td>
           </tr>
         </table>
       </td>
