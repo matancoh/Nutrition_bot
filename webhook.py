@@ -36,7 +36,7 @@ def get_calories(product, attr):
     
     #TODO: seperate to two checks, and reply with the relevant info (attr or product)
     if not product or not attr:
-        speech = "couldn't understand please try with another product"
+        speech = "I couldn't understand that, please try with another product"
         return ask(speech)
     result = getProductAttrByParam(product, attr)
     #speech = getProductAttrByParam(product, 'calories')
@@ -134,7 +134,7 @@ def get_mail():
                      email=email)
     menu = EngineClient.createMenuAndSendMail(user)
     
-    speech = "thank you"
+    speech = "A new cool menu will be sent to you shortly!"
     return ask(speech)
     
 if __name__ == '__main__':
