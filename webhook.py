@@ -31,10 +31,9 @@ EngineClient = FoodEngineClient()
 userHealthyRes = ''
 @assist.action('get_calories')
 def get_calories(product, attr):
-    #query = CALORIES_EXP.findall(assist.request['result']['resolvedQuery'])
     print(product, attr)
     
-    #TODO: seperate to two checks, and reply with the relevant info (attr or product)
+
     if not product or not attr:
         speech = "couldn't understand please try with another product"
         return ask(speech)
