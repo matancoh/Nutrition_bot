@@ -5,7 +5,6 @@ import operator
 import math
 import csv
 import string
-import itertools
 import heapq
 import pickle
 import os
@@ -193,56 +192,6 @@ class FoodEngine(object):
         terms = tokenization_function(document_text)
         return terms
 
-    # implement and query between 2 terms
-    def intersection(self, term1, term2):
-        term1_after_tokenize = tokenization_function(term1)
-        term2_after_tokenize = tokenization_function(term2)
-        p1, p2 = 0, 0
-
-        # the current version supports only one tokenized word intersection (or one word after normalization)
-        if not len(term1_after_tokenize) == 1 or not len(term2_after_tokenize) == 1:
-            return []
-        index1 = self.inverted_index.get(term1_after_tokenize[0])
-        index2 = self.inverted_index.get(term2_after_tokenize[0])
-
-        # making sure both words are in the inverted index
-        if not index1 or not index2:
-            # increase on or more terms are not in the inverted there is no need to continue
-            return []
-
-        res_indexes = []
-        while p1 < len(index1) and p2 < len(index2):
-            if index1[p1] < index2[p2]:
-                p1 += 1
-            elif index1[p1] > index2[p2]:
-                p2 += 1
-            else:
-                res_indexes.append(index1[p1])
-                p1 += 1
-                p2 += 1
-
-        return res_indexes
-
-    # implement or query between 2 terms
-    def union(self, term1, term2):
-        term1_after_tokenize = tokenization_function(term1)
-        term2_after_tokenize = tokenization_function(term2)
-
-        # the current version supports only one tokenized word intersection (or one word after normalization)
-        if not len(term1_after_tokenize) == 1 or not len(term2_after_tokenize) == 1:
-            return []
-
-        index1 = self.inverted_index.get(term1_after_tokenize[0])
-        index2 = self.inverted_index.get(term2_after_tokenize[0])
-
-        # making sure one of the words are in the inverted index
-        if not index1 and not index2:
-            return []
-
-        lst = index1 + index2
-        return list(set(lst))
-
-
     def get(self, productId):
         product = None
         try:
@@ -252,15 +201,6 @@ class FoodEngine(object):
 
         return product
 
-    def _sliceDicFunc(self, number_to_slice=10):
-        return dict(itertools.islice(self.inverted_index.items(), number_to_slice))
-
-    def showFirstsTermsAndSize(self):
-        self._sizeOfDic()
-        topTerms = self._sliceDicFunc()
-
-        for term in topTerms:
-            print(term)
 
     def _createIdfToCorpus(self):  # create weight matrix of tf*idf for all corpus
         self._inverseDocFreq(self.inverted_index.keys()) # create idf for corpus
